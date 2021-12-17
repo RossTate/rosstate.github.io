@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<html>
+  <head>
+    <title>Transitioning from Structural to Nominal Code with Efficient Gradual Typing</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css" />
+  </head>
+  <body>
+    <div id="personal">
+      <div id="media">
+        <video id="video" controls preload="metadata" width="640" height="480">
+          <source src="https://pub.ist.ac.at/~fmuehlbo/media/monnom-oopsla21.mp4" type="video/mp4">
+          <track label="English" kind="subtitles" srclang="en" src="https://pub.ist.ac.at/~fmuehlbo/media/monnom-oopsla21.vtt" default>
+        </video>
+      </div>
+
+      <h1 class="name">Transitioning from Structural to Nominal Code with Efficient Gradual Typing<br/></h1>
+
+      <p>OOPSLA 2021: <a href="monnom-oopsla21.pdf">[pdf]</a> <a href="index.html" onClick="window.open('bibtex.html','Transitioning from Structural to Nominal Code with Efficient Gradual Typing Bibtex','width=1080,height=220,top=100,left=100,scrollbars=Yes,resizable=yes');">[bibtex]</a> <a href="monnom-oopsla21.pptx">[pptx]</a> <a href="https://pub.ist.ac.at/~fmuehlbo/media/monnom-oopsla21.mp4">[mp4]</a></p>
+      <p>Technical Report: <a href="monnom-oopsla21-tr.pdf">[pdf]</a> <a href="index.html" onClick="window.open('bibtex-tr.html','Transitioning from Structural to Nominal Code with Efficient Gradual Typing&mdash;Technical Report Bibtex','width=1080,height=220,top=100,left=100,scrollbars=Yes,resizable=yes');">[bibtex]</a></p>
+      <p>Artifact: <a href="https://doi.org/10.5281/zenodo.5518181">[zenodo]</a> <a href="https://github.com/fabianmuehlboeck/monnom/tree/release/oopsla21">[github]</a></p>
+
+      <p>Authors: <a href="http://www.cs.cornell.edu/~fabianm/">Fabian Muehlboeck</a> and <a href="../../">Ross Tate</a></p>
+    </div>
+
+    <div id="main">
+      <h2>Abstract</h2>
+        <p>
+          Gradual typing is a principled means for mixing typed and untyped code.
+          But typed and untyped code often exhibit different programming patterns.
+          There is already substantial research investigating gradually giving types to code exhibiting typical untyped patterns, and some research investigating gradually removing types from code exhibiting typical typed patterns.
+          This paper investigates how to extend these established gradual-typing concepts to give formal guarantees not only about how to change types as code evolves but also about how to change such programming patterns as well.
+        </p>
+        <p>
+          In particular, we explore mixing untyped &quot;structural&quot; code with typed &quot;nominal&quot; code in an object-oriented language.
+          But whereas previous work only allowed &quot;nominal&quot; objects to be treated as &quot;structural&quot; objects, we also allow &quot;structural&quot; objects to dynamically acquire certain nominal types, namely interfaces.
+          We present a calculus that supports such &quot;cross-paradigm&quot; code migration and interoperation in a manner satisfying both the static and dynamic gradual guarantees, and demonstrate that the calculus can be implemented efficiently.
+        </p>
+
+      <h2>Questions, Comments, and Suggestions</h2>
+        <p>If you have any questions, comments, or suggestions, please e-mail me. I would be glad to know of any opinions people have or any clarifications I should make.</p>
+    </div>
+  </body>
+</html>

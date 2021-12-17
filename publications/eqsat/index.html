@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<html>
+  <head>
+    <title>Equality Saturation: A New Approach to Optimization</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css" />
+  </head>
+  <body>
+    <div id="personal">
+      <div id="media">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/hL2MARuBCzw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+      <h1 class="name">Equality Saturation:<br/><small>A New Approach to Optimization</small></h1>
+      <p>Published at POPL 2009: <a href="eqsat_tate_popl09.pdf">[pdf]</a> <a href="index.html" onClick="window.open('bibtex.html','Equality Saturation: a New Approach to Optimization BibTeX','width=1080,height=220,top=100,left=100,scrollbars=Yes,resizable=yes');">[bibtex]</a> <a href="EqualitySaturation.pptx">[pptx]</a> <a href="https://www.cs.cornell.edu/~ross/publications/eqsat/Equality Saturation.mp4">[mp4]</a></p>
+
+      <p>Journal Version in LMCS 2011: <a href="http://arxiv.com/abs/1012.1802">arXiv</a> <a href="eqsat_tate_lmcs11.pdf">pdf</a> <a href="index.html" onClick="window.open('bibtex-lmcs.html','Equality Saturation: a New Approach to Optimization (LMCS) BibTeX','width=1080,height=220,top=100,left=100,scrollbars=Yes,resizable=yes');">[bibtex]</a></p>
+
+      <p>Authors: <a href="../../">Ross Tate</a>, <a href="http://cseweb.ucsd.edu/~mstepp/">Michael Stepp</a>, <a href="http://cseweb.ucsd.edu/~ztatlock/">Zachary Tatlock</a>, and <a href="http://cseweb.ucsd.edu/~lerner/">Sorin Lerner</a></p>
+
+      <p>Conversion Algorithms Technical Report: <a href="peg_conversion.pdf">[pdf]</a> <a href="index.html" onClick="window.open('bibtex-tr.html','Translating between PEGs and CFGs BibTeX','width=1080,height=220,top=100,left=100,scrollbars=Yes,resizable=yes');">[bibtex]</a></p>
+
+      <p>CAV Tools 2011 on application to translation validation for LLVM: <a href="eqsat_stepp_cav11.pdf">[pdf]</a> <a href="index.html" onClick="window.open('bibtex-cav.html','Equality-Based Translation Validor for LLVM BibTeX','width=1080,height=220,top=100,left=100,scrollbars=Yes,resizable=yes');
+">[bibtex]</a></p>
+
+      <p>Theses: Ross Tate's <a href="RossThesis.pdf">[pdf]</a> and Michael Stepp's <a href="MikeThesis.pdf">[pdf]</a></p>
+
+      <p>We have followed up this research with a technique for <a href="../proofgen/">automatically learning optimizations</a>. In particular, this technique can be used to mitigate the cost of equality saturation and global profitability heuristics.</p>
+    </div>
+
+    <div id="main">
+      <h2>Abstract</h2>
+      <p>Optimizations in a traditional compiler are applied sequentially, with each optimization destructively modifying the program to produce a transformed program that is then passed to the next optimization. We present a new approach for structuring the optimization phase of a compiler. In our approach, optimizations take the form of equality analyses that add equality information to a common intermediate representation. The optimizer works by repeatedly applying these analyses to infer equivalences between program fragments, thus saturating the intermediate representation with equalities. Once saturated, the intermediate representation encodes multiple optimized versions of the input program. At this point, a profitability heuristic picks the final optimized program from the various programs represented in the saturated representation. Our proposed way of structuring optimizers has a variety of benefits over previous approaches: our approach obviates the need to worry about optimization ordering, enables the use of a global optimization heuristic that selects among fully optimized programs, and can be used to perform translation validation, even on compilers other than our own. We present our approach, formalize it, and describe our choice of intermediate representation. We also present experimental results showing that our approach is practical in terms of time and space overhead, is effective at discovering intricate optimization opportunities, and is effective at performing translation validation for a realistic optimizer.</p>
+
+      <h2>Emergent Optimizations</h2>
+      <p>Emergent optimizations are advanced optimizations derived from simple rules. They are a frequent occurence in our approach, so for no additional effort Peggy finds many advanced classical optimizations we never had to explicitly code. Because they are not explicityly coded, emergent optimizations are often non-classical. An example of this is what we have called &quot;Partial Inlining&quot;, where the equality information provided by the inliner is exploited without electing to inline the method. This is particularly common for functions where the stateful component is complex but the returned value is a simple function of the parameters, or sometimes vice-versa. The optimized program will still call the function for its stateful effect, but will have inlined and optimized the return value.</p>
+
+      <h2>Program Expression Graphs</h2>
+      <p>Program expression graphs (PEGs) are an intermediate representation we designed specifically for equality reasoning. PEGs are a complete representation of a function, making it unnecessary to keep the original control flow graph. PEGs are referentially transparent, allowing common subexpressions to be identified and allowing equalities to propagate via congruence closure. PEGs have no intermediate variables, which turns out to be a subtly crucial property since it enables optimizations to apply across would-be block boundaries with the same ease as within blocks, giving rise to emergent branch and loop optimizations. Simply the process of converting to and from PEGs produces optimizations such as constant propagation, copy propagation, common subexpression elimination, partial redundancy elimination, unused assignment elimination, unreachable code elimination, branch fusion, loop fusion, loop invariant branch hoisting and sinking, loop invariant code hoisting and sinnking, and loop unswitching. An E-PEG is a PEG with equality annotation edges between PEG nodes representing the same value. E-PEGs are the representation used by our equality saturation engine in our optimization and translation validation processes.</p>
+
+      <h2>Reducing Blow-Up</h2>
+      <p>Although our equality saturation has exponential blow-up, the effect is reduced dramatically by the suprising amount of redundancy in this process. For example, there are an infinite number of ways to express a+b+c+d+0 using monoid axioms, 1800 of which have "0" occur once or fewer times. E-PEGs need only 86 nodes divided into 16 equivalence classes, and these also express all equivalent subexpressions. This difference grows dramatically as you increase the number of variables. Even when there is exponential or infinite growth, our implementation processes new expressions in a breadth-first manner. This prevents our search from getting trapped in a rat hole, fairly distributing its exploration across the entire PEG.</p>
+
+      <h2>Reversion Choices</h2>
+      <p><a href="http://lambda-the-ultimate.org/node/3220#comment-47332">Jason Riedy</a> reminded me of a research avenue. When converting a PEG back to a CFG, we make a lot of choices. To summarize them: we compute a value at most once and only when we absolutely need to, and we fuse as much as we can. We made the first choice because we wanted to revert with as little information as possible about the language, including which operations are safe. This forces us to only compute a value when we have to, and only computing a value at most once leads to partial redundancy elimination. The second choice leads to branch and loop fusion regardless of the sizes of the pertinent blocks. From a PEG it tends to be very obvious which branchs and loops can be split or fused. It would be interesting to explore heuristics which, given a PEG to revert to a CFG, suggests which branches and loops to split or fuse, which values to redundantly recompute, and which values to compute even when it may never be used. These issues seem to be orthogonal to the equality inference stage, although they would have some implications for our cost model used to select the optimal PEG.</p>
+
+      <h2>Loop Unrolling</h2>
+      <p>Loop unrolling is an optimization which highlights one of the shortcomings of PEGs, although not necessarily of equality saturation in general. It has to do with the bigger problem of loop reindexing. In PEGs, a loop value is the sequence of non-loop values made as the loop iterates. Loop unrolling, then, constructs a new sequence consisting of the values at even loop iteration counts. Loop peeling is the original sequence minus the first value. In our current implemetation, we have an operation for constructing the peeled sequence, which we use in both equality saturation and PEG reversion. For equality saturation, we include axioms such as peel(&theta;(A,B)) = B. It would be interesting to apply the same approach with loop unrolling using operators like even and odd, with axioms such as even(&theta;(A,B)) = &theta;(A,odd(B)) and odd(&theta;(A,B)) = even(B). This process would wrap up nicely in the same way loop-induction-variable strength reduction wraps up. The possible problem I foresee is not the explosion but how this may interact with the global profitability heuristic. Yet another avenue to explore eventually. Thanks again to <a href="http://lambda-the-ultimate.org/node/3220#comment-47332">Jason Riedy</a> for bringing this up.</p>
+
+      <h2>Questions, Comments, and Suggestions</h2>
+      <p>If you have any questions, comments, or suggestions, please e-mail us. We would be glad to know of any opinions people have or any clarifications we should make.</p>
+    </div>
+  </body>
+</html>

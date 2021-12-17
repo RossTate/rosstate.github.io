@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<html>
+  <head>
+    <title>Preventing Glitches and Short Circuits in High-Level Self-Timed Chip Specifications</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css" />
+  </head>
+  <body>
+    <div id="personal">
+      <div id="media">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/f60CltNu4J0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+      <h1 class="name">Preventing Glitches and Short Circuits in High-Level Self-Timed Chip Specifications</h1>
+      <p>PLDI 2015: <a href="chpeffects-pldi15.pdf">[pdf]</a> <a href="index.html" onClick="window.open('bibtex.html','Preventing Glitches and Short Circuits in High-Level Self-Timed Chip Specifications Bibtex','width=1080,height=220,top=100,left=100,scrollbars=Yes,resizable=yes');">[bibtex]</a> <a href="artifact.html">[artifact]</a> <a href="https://www.cs.cornell.edu/~ross/publications/chpeffects/chpeffects-PLDI15.mp4">[mp4]</a> <a href="chpeffects-pldi15-talk.pdf">[talk pdf]</a> <a href="chpeffects-pldi15-talk.tex">[talk tex]</a></p>
+
+      <p>Authors: <a href="http://www.stephenlongfield.com/">Stephen Longfield</a>, <a href="http://www.cs.cornell.edu/~nkounkou/">Brittany Nkounkou</a>, <a href="http://vlsi.cornell.edu/~rajit/">Rajit Manohar</a>, and <a href="../../">Ross Tate</a></p>
+    </div>
+
+    <div id="main">
+      <h2>Abstract</h2>
+        <p>Self-timed chip designs are commonly specified in a high-level message-passing language called CHP. This language is closely related to Hoare's CSP except it admits erroneous behavior due to the necessary limitations of efficient hardware implementations. For example, two processes sending on the same channel at the same time causes glitches and short circuits in the physical chip implementation. If a CHP program maintains certain invariants, such as only one process is sending on any given channel at a time, it can guarantee an error-free execution that behaves much like a CSP program would. In this paper, we present an inferable effect system for ensuring that these invariants hold, drawing from model-checking methodologies while exploiting language-usage patterns and domain-specific specializations to achieve efficiency. This analysis is sound, and is even complete for the common subset of CHP programs without data-sensitive synchronization. We have implemented the analysis and demonstrated that it scales to validate even microprocessors.</p>
+
+      <h2>Questions, Comments, and Suggestions</h2>
+        <p>If you have any questions, comments, or suggestions, please e-mail me. I would be glad to know of any opinions people have or any clarifications I should make.</p>
+    </div>
+  </body>
+</html>

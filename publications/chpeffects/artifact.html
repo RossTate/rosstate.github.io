@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://popl15-aec.cs.umass.edu/for-authors/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Preventing Glitches and Short Circuits in High-Level Self-Timed Chip Specifications Artifact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link rel="shortcut icon" href="http://www.cornell.edu/favicon.ico" />
+  <style type="text/css"></style></head>
+
+<body>
+
+<div class="container-fluid">
+
+<div class="row">
+
+<div class="col-md-3">
+
+</div>
+
+<div class="col-md-6">
+
+<h1><a href="chpeffects-pldi15.pdf">Preventing Glitches and Short Circuits in High-Level Self-Timed Chip Specifications</a></h1>
+<h2>Artifact</h2>
+
+<h3><a href="http://www.stephenlongfield.com/">Stephen Longfield</a>, <a href="http://www.cs.cornell.edu/~nkounkou/">Brittany Nkounkou</a>, <a href="http://vlsi.cornell.edu/~rajit/">Rajit Manohar</a>, and <a href="http://www.cs.cornell.edu/~ross/">Ross Tate</a></h3>
+
+<p>Artifacts: <strong>Inferable Effect System Implementation</strong> and <strong>Semantics Equivalence Mechanical Proof</strong></p>
+
+</div>
+
+<div class="col-md-3"></div>
+
+</div>
+
+<hr>
+
+<div class="row">
+
+<div class="col-md-3"></div>
+<div class="col-md-6">
+
+<p>We present two artifacts that accompany our paper. The first is our implementation of the inferable effect system described in Section 4 which was used to produce the results presented in Section 6. The second is our mechanical proof of the semantics equivalence theorem stated in Section 3.3 of the paper. We have created a <a href="https://www.cs.cornell.edu/~ross/publications/chpeffects/PLDI2015.ova">VirtualBox VM</a> (username "osboxes", password "pldi2015") containing both of these artifacts, including all source files and all tools necessary to run them. Should one want to run the files on another machine, we also have the Inferable Effect System <a href="Implementation.zip">Implementation source files</a> and the Semantics Equivalence Mechanical <a href="Proof.zip">Proof source files</a> available separately. Included in the Proof source files is a <a href="ProofGuide.pdf">Proof Guide</a>, which details the correspondence between the semantics definitions in the paper and the relative constructs in the proof source code. Please find instructions on how to run both artifacts below. Note that these instructions are also included in a README in each of the source file folders.</p>
+
+<h2>Inferable Effect System Implementation</h2>
+
+<p>If using the VM, the source files for the effect system implementation can be found in the "Implementation" folder which is on the Desktop.</p>
+
+<p>With a command-line terminal navigated to the source file folder, the artifact can be run as follows:</p>
+
+<h4>How to use the tools</h4>
+
+<p>Requirements:
+<ul>
+	<li>Python 2.7.x -- <a href="http://www.python.org">http://www.python.org</a></li>
+	<li>Python Packages: recordtype, ply, psutil -- <a href="http://pypi.python.org/pypi">http://pypi.python.org/pypi</a></li>
+</ul>
+</p>
+
+<p>Note: Our system is configured to measure Memory Usage in Linux. To do so in Windows, lines 923 and 924 of chp_machine.py should be respectively commented and uncommented. For other OSes, refer to <a href="http://pythonhosted.org//psutil/#psutil.Process.memory_info_ex">http://pythonhosted.org//psutil/#psutil.Process.memory_info_ex</a></p>
+
+<p>To run the analysis as described in the paper, on the 10 stage fifo:
+</br>
+	<code>python ./chp_machine.py < Examples/fifo10.chp</code>
+</p>
+
+<p>The input file is a CHP specification, using the CHP language as described in the paper (note that this version of the CHP language is a somewhat simplified version that doesn't support including other files, instantiation of modules, array accesses, etc.)</p>
+
+<p>The output is three things, output directly to STDIO:
+<ol>
+	<li>The size of the Naive NFA</li>
+	<li>The final NFA effect, in the format for Graphviz dot.
+	<ul>
+		<li>Note that in some cases, this will only be a single dot. This indicates that the effect	has no externally visible components, and does not contain any errors.</li>
+	</ul>
+	</li>
+	<li>A report, detailing:
+	<ul>
+		<li>The number of unique states seen while running the analysis</li>
+		<li>The maximum intermediate #of nodes in the NFA</li>
+		<li>The size, which is the number of non-idle edges, in the final NFA</li>
+		<li>The amount of memory used, in KB, as measured by psutil</li>
+	</ul>
+	</li>
+</ol>
+
+<h4>How to compare to SPIN</h4>
+
+<p>Requirements:
+<ul>
+	<li>Bison 3.0.2 -- <a href="http://www.gnu.org/software/bison">http://www.gnu.org/software/bison</a></li>
+	<li>SPIN 6.3.2 -- <a href="http://spinroot.com/">http://spinroot.com/</a></li>
+</ul>
+</p>
+
+<p>First, the CHP specification needs to be translated into Promela, the input language of
+SPIN, the environment needs to be set up (as SPIN only accepts closed systems, as opposed
+to our analysis, which accepts open systems), and the claims we are verifying need to be
+communicated to SPIN. All of this is done using "chp_promela.py". For example:
+</br>
+	<code>python ./chp_promela.py Examples/fifo10.chp fifo10.pml</code>
+</br>
+When prompted for channel types while converting the GPS acquisition, indicate that both MAG and C1023 are Bool. For the microprocessor, indicate that channel DMEM has type Int and its maximum value is 10.</p>
+
+<p>SPIN then needs to build the model for anaylsis. This is a separate step before analysis,
+where many of the reductions are done.  This is done using the spin executable. For example:
+</br>
+	<code>spin -a fifo10.pml</code>
+</br>
+This generates the source files for the model, along with some log files. By default, these
+are written to pan.[b|c|h|m|p|t]</p>
+
+<p>To run the SPIN analysis, this then needs to be compiled. Compiler flags are used to limit the maximum memory size (given in MB). For example:
+</br>
+	<code>cc -DMEMLIM=500000 -o pan pan.c</code>
+</br>
+We set DMEMLIM to 500000 (500 GB) for all examples.</p>
+
+<p>It is also possible to turn off partial order reduction from these compiler options. For example:
+</br>
+	<code>cc -DMEMLIM=500000 -DNOREDUCE -o pan pan.c</code>
+</br>
+We did not set DNOREDUCE in any of the runs reported in the paper.</p>
+
+<p>Note that, for some large models, it isn't possible to fit the state vector into SPIN's
+default state vector size (1028 bits), and the state vector size has to be increased. For example:
+</br>
+	<code>cc -DMEMLIM=500000 -DNOREDUCE -DVECTORZ=2048 -o pan pan.c</code>
+</br>
+We set DVECTORZ to 2048 for the microprocessor and 100-stage fifo, using the default value for all other examples.</p>
+
+<p>After the model has been compiled, run the program to see the result of the analysis. To
+ensure that the entire space is explored, we set the maximum search depth to 1,000,000
+instead of the default 10,000. In cases where this limit is reached (e.g., the larger FIFOs), the depth should be increased further until the full space is searched:
+</br>
+	<code>./pan -m1000000</code>
+</br>
+SPIN then outputs a report on any errors found, as well as how much memory was used
+to run the analysis, and how much time it took. The time reported in the paper is the
+summation of all the steps (model build time, model compile time, and model run time).</p>
+
+<h4>Examples from the paper</h4>
+
+<p>The Examples directory contains the examples, which have their own readme to give some
+additional details on what is contained within each example. The examples that were used
+as benchmarks in the paper are as follows:
+<ul>
+	<li>GPS Acquisition: gps_acq.chp</li>
+	<li>Microprocessor : micro_arch.chp</li>
+</br>
+	<li>FIFO, 10 Stage : fifo10.chp</li>
+	<li>FIFO, 50 Stage : fifo50.chp</li>
+	<li>FIFO, 100 Stage: fifo100.chp</li>
+</br>
+	<li>Arbitration, 5 : arb5.chp</li>
+	<li>Arbitration, 10: arb10.chp</li>
+	<li>Arbitration, 20: arb20.chp</li>
+</br>
+	<li>Token-ring, 5  : token5.chp</li>
+	<li>Token-ring, 7  : token7.chp</li>
+	<li>Token-ring, 10 : token10.chp</li>
+</ul>
+</p>
+
+<h2>Semantics Equivalence Mechanical Proof</h2>
+
+<p>If using the VM, the source files for the semantics equivalence proof can be found in the "Proof" folder which is on the Desktop.</p>
+
+<p>With a command-line terminal navigated to the source file folder, the artifact can be run as follows:</p>
+
+<h4>How to mechanically verify the proof</h4>
+
+<p>Requirements:
+<ul>
+	<li>The Coq Proof Assistant 8.4pl3 -- <a href="http://coq.inria.fr/">http://coq.inria.fr/</a></li>
+</ul>
+</p>
+
+<p>To compile a coq source file, for example "SemanticsBase.v", one simply executes:
+</br>
+	<code>coqc SemanticsBase.v</code>
+</br>
+after which "SemanticsBase.glob" and "SemanticsBase.vo" will be generated in the same folder. The former contains an enumeration of the source's global constructs (for documentation purposes), and the latter contains the complete compiled library of the source. The source file will only successfully compile if its constructs can be successfully type-checked by Coq, which implies that the Propositions/Types declared in the file have been correctly proven/inhabited.</p>
+
+<p>Our Coq proof is split up into 17 different source files, which <strong>must be compiled in the order of their logical dependence</strong>. Below, we provide a visual overview of those dependencies, along with a high-level description of each file.</p>
+
+<p><a href="coq-files.jpg"><img src="coq-files.jpg" style="width:100%"></a></p>
+
+<p><strong>The provided Makefile performs this compilation procedure in its entirety.</strong> Upon compiling the last file, "ProofFinal.v", Coq will output the following:
+</br>
+	<code>
+	Axioms:</br>
+	Channel : Type</br>
+	eq_Channel_dec : forall c1 c2 : Channel, {c1 = c2} + {c1 <> c2}
+	</code>
+</br>
+This output is a result of the last line in "ProofFinal.v", which reads:
+</br>
+	<code>Print Assumptions BigErrorStep_iff_BigErrorTrace.</code>
+</br>
+This query prints all assumptions made in the construction of "BigErrorStep_iff_BigErrorTrace", whose definition completes the proof (as explained in the Proof Guide). Thus, the result of this query tells us that the only assumptions made in the entire proof system were that of a "Channel" type, and decidable equality within that type. <strong>For more information on the internal structure of the proof, we refer the reader to the provided Proof Guide.</strong></p>
+
+</div>
+
+<div class="col-md-3"></div>
+</div>
+
+</div>
+
+
+
+
+</body></html>

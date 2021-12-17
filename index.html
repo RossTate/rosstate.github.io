@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<html>
+	<head>
+		<title>Ross Tate</title>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+		<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="https://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+		<script>
+		  $(function() {
+		    $( "#slider-vertical" ).slider({
+		      orientation: "vertical",
+		      range: "min",
+		      min: 0,
+		      max: 13,
+		      value: 0,
+		      slide: function( event, ui ) {
+		        value = ui.value;
+		        if (value-- == 0) {
+		        	rossfull = ross = "RossHandstand.jpg";
+		        } else if (value-- == 0) {
+		        	ross = "RossDyedThumb.jpg";
+		        	rossfull = "RossDyedFull.jpg"
+		        } else if (value-- == 0) {
+		        	ross = "BrotateThumb.jpg";
+		        	rossfull = "BrotateFull.jpg"
+		        } else if (value-- == 0) {
+		        	ross = "RossCowboyThumb.jpg";
+		        	rossfull = "RossCowboyFull.jpg"
+		        } else if (value-- == 0) {
+		        	ross = "RossLayoutThumb.jpg";
+		        	rossfull = "RossLayoutFull.jpg"
+		        } else if (value-- == 0) {
+		        	ross = "RossBurntThumb.jpg";
+		        	rossfull = "RossBurntFull.jpg"
+		        } else if (value-- == 0) {
+		        	ross = "RossATVThumb.jpg";
+		        	rossfull = "RossATVFull.jpg"
+		        } else if (value-- == 0) {
+		        	ross = "RossSleddingThumb.jpg";
+		        	rossfull = "RossSleddingFull.jpg"
+		        } else if (value-- == 0) {
+		        	ross = "RossColoredThumb.jpg";
+		        	rossfull = "RossColoredFull.jpg"
+		        } else if (value-- == 0) {
+		        	ross = "RossStrongRejectThumb.jpg";
+		        	rossfull = "RossStrongRejectFull.jpg";
+		        } else if (value-- == 0) {
+		        	ross = "RossCasualThumb.jpg";
+		        	rossfull = "RossCasualFull.jpg"
+		        } else if (value-- == 0) {
+		        	ross = "RossByBryceEvansThumb.jpg";
+		        	rossfull = "RossByBryceEvansFull.jpg"
+		        } else if (value-- == 0) {
+		        	ross = "RossVestedThumb.jpg";
+		        	rossfull = "RossVestedFull.jpg"
+		        } else {
+		        	ross = "RossTateThumb.jpg";
+		        	rossfull = "RossTateFull.jpg"
+		        }
+		        document.getElementById("ross").src = "images/" + ross;
+		        document.getElementById("rossfull").href = "images/" + rossfull;
+		      }
+		    });
+		    $( "#amount" ).val( $( "#slider-vertical" ).slider( "value" ) );
+		  });
+		</script>
+	</head>
+	<body>
+		<div id="personal" style="margin-left:auto;margin-right:auto;border-bottom:2px solid black">
+			<table style="margin-left:auto;margin-right:auto"><tr>
+				<td style="vertical-align:middle">
+					<table style="margin-left:auto;margin-right:auto">
+						<tr><td align="center"><img src="http://www.clker.com/cliparts/r/q/M/X/h/0/shoe-print-th.png" height="30" width="20"/></td></tr>
+						<tr><td align="center" style="padding-top:5;padding-bottom:5"><div id="slider-vertical" style="height: 200px;"></div></td></tr>
+						<tr><td align="center" style="padding-bottom:25"><img src="http://subtalarsuperhero.files.wordpress.com/2012/02/foot3.png" height="30" width="20"/></td></tr>
+					</table>
+				</td>
+				<td style="vertical-align:middle" width="370" align="center">
+					<a id="rossfull" href="images/RossHandstand.jpg"><img id="ross" class="photo" src="images/RossHandstand.jpg" alt="Ross Tate" style="float:none;vertical-align:middle" height="300"></a>
+				</td>
+				<td style="vertical-align:middle">
+					<h1 class="name">Ross Tate</h1>
+					<p>Computer Science Ph.D. at University of California, San Diego <font size="1"><a href="theses/tate-thesis.pdf">[Thesis]</a></font><br/>
+						Mathematics &amp; Computer Science B.S.s at Cal Poly, San Luis Obispo</p>
+					<p>
+					  <a id="email">ROT13(&quot;pbagnpg@ebffgngr.bet&quot;)</a>
+					  <script type="text/javascript">
+					    function decode(a) {
+					      return a.replace(/[a-zA-Z]/g, function(c){
+					        return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 13)
+					                                   ? c : c - 26);
+					      })
+					    };
+					    var element = document.getElementById("email");
+					    var y = decode("pbagnpg@ebffgngr.bet");
+					    element.setAttribute("href", "mailto:" + y);
+					    element.setAttribute("onload", "");
+					    element.firstChild.nodeValue = y;
+					  </script>
+					</p>
+
+					<p>Graduate Advisor: <a href="http://cseweb.ucsd.edu/~lerner/">Sorin Lerner</a><br/>
+						Undergraduate Advisor: <a href="http://www.csc.calpoly.edu/~akeen/">Aaron Keen</a></p>
+				</td>
+			</tr></table>
+		</div>
+
+		<div id="main">
+			<div style="float:right;padding-left:2em;padding-right:2em;padding-bottom:1em;border-left-width:2px;border-left-style:solid;border-left-color:black;margin-left:2em;text-align:center">
+				 <h2 style="padding-top:0em">Talks</h2>
+				 <p id="ECOOP17"><img src="Tate-ECOOP17.png" style="border:2px solid black" alt="Retargeting Gradual Typing" onclick="document.getElementById('ECOOP17').innerHTML='&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/fARowS_O9t4?autoplay=1&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;'"/></p><p><a href="https://www.youtube.com/watch?v=fARowS_O9t4">Dahl-Nygaard Keynote<br/>@ ECOOP 2017</a></p>
+				 <p id="SPLASH16"><img src="Tate-SPLASH16.jpg" style="border:2px solid black" alt="SPLASH 2016: Nada Amin and Ross Tate on breaking Java and Scala's type system" onclick="document.getElementById('SPLASH16').innerHTML='&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/H_2y9wyOQN0?autoplay=1&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;'"/></p><p><a href="https://www.youtube.com/watch?v=H_2y9wyOQN0">Interview @ SPLASH 2016</a></p>
+				 <p id="CurryOn16"><img src="Tate-CurryOn16.png" style="border:2px solid black" alt="Redesigning Type Systems for Industry OO" onclick="document.getElementById('CurryOn16').innerHTML='&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/V9S8lU58K68?autoplay=1&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;'"/></p><p><a href="https://www.youtube.com/watch?v=V9S8lU58K68">Curry On! 2016</a></p>
+			</div>
+
+			<h2>Publications</h2>
+				<p>The links below contain more than the usual pdf files; they contain an embedded video of the presentation and the powerpoint slides, for those people who would like a quick overview before reading the paper. They also have answers to common questions we have recieved.</p>
+				<ul>
+					<li><a href="publications/monnom/"><b>Transitioning from Structural to Nominal Code with Efficient Gradual Typing</b></a> (OOPSLA 2021)<br/>
+						&nbsp;&nbsp; with <a href="http://www.cs.cornell.edu/~fabianm/">Fabian Muehlboeck</a><br/></li>
+					<li><a href="https://dl.acm.org/doi/abs/10.1145/3485527"><b>Type Stability in Julia: Avoiding Performance Pathologies in JIT Compilation</b></a> (OOPSLA 2021)<br/>
+						&nbsp;&nbsp; with <a href="http://staff.mmcs.sfedu.ru/~ulysses/index.html">Artem Pelenitsyn</a>, <a href="https://julbinb.github.io/">Julia Belyakova</a>, <a href="https://benchung.github.io/">Benjamin Chung</a>, and <a href="http://janvitek.org/">Jan Vitek</a><br/></li>
+					<li><a href="https://ieeexplore.ieee.org/abstract/document/9470514"><b>Evidenced Frames: A Unifying Framework Broadening Realizability Models</b></a> (LICS 2021)<br/>
+						&nbsp;&nbsp; with <a href="https://www.cs.bgu.ac.il/~cliron/">Liron Cohen</a> and <a href="https://www.i2m.univ-amu.fr/perso/etienne.miquey/">Étienne Miquey</a><br/></li>
+					<li><a href="https://dl.acm.org/doi/10.1145/3428275"><b>World Age in Julia: Optimizing Method Dispatch in the Presence of Eval</b></a> (OOPSLA 2020)<br/>
+						&nbsp;&nbsp; with <a href="https://julbinb.github.io/">Julia Belyakova</a>, <a href="https://benchung.github.io/">Benjamin Chung</a>, Jack Galinas, Jameson Nash, and <a href="http://janvitek.org/">Jan Vitek</a><br/></li>
+					<li><a href="http://www.cs.cornell.edu/~akhirsch/pubs/first_order_logic_for_flow_limited_authorization.html"><b>First-Order Logic for Flow-Limited Authorization</b></a> (CSF 2020) (Workshop Version: FCS 2019)<br/>
+						&nbsp;&nbsp; with <a href="http://www.cs.cornell.edu/~akhirsch/">Andrew K. Hirsch</a>, <a href="http://www.cs.cornell.edu/~pamorim/">Pedro H. Azevedo de Amorim</a>, <a href="https://www.cs.cornell.edu/~ethan/">Ethan Cecchetti</a>, and <a href="https://users.soe.ucsc.edu/~owen/">Owen Arden</a><br/></li>
+					<li><a href="publications/effectful/"><b>The Effects of Effects on Constructivism</b></a> (MFPS 2019)<br/>
+						&nbsp;&nbsp; with <a href="https://www.cs.bgu.ac.il/~cliron/">Liron Cohen</a> and <a href="http://afsofia.dev/">Sofia Abreu Faro</a><br/></li>
+					<li><a href="publications/empower/"><b>Empowering Union and Intersection Types with Integrated Subtyping</b></a> (OOPSLA 2018)<br/>
+						&nbsp;&nbsp; with <a href="http://www.cs.cornell.edu/~fabianm/">Fabian Muehlboeck</a><br/></li>
+					<li><a href="publications/sleffects/"><b>Strict and Lazy Semantics for Effects: Layering Monads and Comonads</b></a> (ICFP 2018)<br/>
+						&nbsp;&nbsp; with <a href="http://www.cs.cornell.edu/~akhirsch/">Andrew K. Hirsch</a><br/></li>
+					<li><a href="publications/nomalive/"><b>Sound Gradual Typing is Nominally Alive and Well</b></a> (OOPSLA 2017) (Distinguished Paper Award)<br/>
+						&nbsp;&nbsp; with <a href="http://www.cs.cornell.edu/~fabianm/">Fabian Muehlboeck</a><br/></li>
+					<li><a href="http://io.livecode.ch/learn/namin/unsound"><b>Java and Scala's Type Systems are Unsound</b></a> (OOPSLA 2016) (Distinguished Artifact Award)<br/>
+						&nbsp;&nbsp; with <a href="http://namin.net/">Nada Amin</a><br/></li>
+					<li><a href="publications/chpeffects/"><b>Preventing Glitches and Short Circuits in High-Level Self-Timed Chip Specifications</b></a> (PLDI 2015)<br/>
+						&nbsp;&nbsp; with <a href="http://www.stephenlongfield.com/">Stephen Longfield</a>, <a href="http://www.cs.cornell.edu/~nkounkou/">Brittany Nkounkou</a>, and <a href="http://vlsi.cornell.edu/~rajit/">Rajit Manohar</a><br/></li>
+					<li><a href="publications/shapes/"><b>Getting F-Bounded Polymorphism into Shape</b></a> (PLDI 2014)<br/>
+						&nbsp;&nbsp; with <a href="http://www.cs.cornell.edu/~blg59/">Ben Greenman</a> and <a href="http://www.cs.cornell.edu/~fabianm/">Fabian Muehlboeck</a><br/>
+						&nbsp;&nbsp; and consultation from the <a href="http://ceylon-lang.org/">Ceylon</a> team at <a href="http://www.redhat.com/">Red Hat</a></li>
+					<li><a href="publications/mixedsite/"><b>Mixed-Site Variance</b></a> (FOOL 2013)<br/>
+						&nbsp;&nbsp; with consultation from the <a href="http://kotlin.jetbrains.org/">Kotlin</a> team at <a href="http:/www.jetbrains.org/">JetBrains</a></li>
+					<li><a href="publications/productors/"><b>The Sequential Semantics of Producer Effect Systems</b><a/> (POPL 2013)</b></li>
+					<li><a href="publications/tamewild/"><b>Taming Wildcards in Java's Type System</b></a> (PLDI 2011)<br/>
+						&nbsp;&nbsp; with <a href="http://cseweb.ucsd.edu/~atl017/">Alan Leung</a> and <a href="http://cseweb.ucsd.edu/~lerner/">Sorin Lerner</a></li>
+					<li><a href="publications/italx/"><b>Inferable Object-Oriented Type Assembly Language</b></a> (PLDI 2010)<br/>
+						&nbsp;&nbsp; with <a href="http://research.microsoft.com/~juanchen/">Juan Chen</a> and <a href="http://research.microsoft.com/~chrishaw/">Chris Hawblitzel</a></li>
+					<li><a href="publications/proofgen/"><b>Generating Compiler Optimizations from Proofs</b></a> (POPL 2010)<br/>
+						&nbsp;&nbsp; with <a href="http://cseweb.ucsd.edu/~mstepp/">Michael Stepp</a> and <a href="http://cseweb.ucsd.edu/~lerner/">Sorin Lerner</a></li>
+					<li><a href="publications/eqsat/"><b>Equality Saturation: A New Approach to Optimization</b></a> (POPL 2009, LMCS 2011, CAV 2011)<br/>
+						&nbsp;&nbsp; with <a href="http://cseweb.ucsd.edu/~mstepp/">Michael Stepp</a>, <a href="http://cseweb.ucsd.edu/~ztatlock/">Zachary Tatlock</a>, and <a href="http://cseweb.ucsd.edu/~lerner/">Sorin Lerner</a></li>
+				</ul>
+
+			<h2>Articles</h2>
+				<ul>
+					<li><a href="https://hackernoon.com/java-is-unsound-28c84cb2b3f"><b>Java is Unsound: The Industry Perspective</b></a> (2017)<br/>
+						&nbsp;&nbsp; featured by <a href="https://hackernoon.com/java-is-unsound-28c84cb2b3f">HackerNoon</a> and <a href="https://dev.to/rosstate/java-is-unsound-the-industry-perspective">dev.to</a>
+				</ul>
+
+			<h2>Kotlin</h2>
+				<p>Due to my work on wildcards and Ceylon, I came into contact with the <a href="http://kotlin.jetbrains.org/">Kotlin</a> team at <a href="http://www.jetbrains.org/">JetBrains</a>. They, too, are developing a next-generation object-oriented industry-scale programming language, and am acting primarily as a type-system advisor there as well. The two projects are very different, both in how they operate, and in what they are working towards. The contrast has been very educational, offering a diverse set of opinions on potential features or refinements, and resulting in subtle but important differences in the problems at hand. Most recently I have written a paper on a system I developed for Kotlin, which has a strong need to mix use-site and declaration-site variance together for purposes of compatibility and usability.</p>
+				<ul><li><a href="publications/mixedsite/"><b>Mixed-Site Variance</b></a> (FOOL 2013)</li></ul>
+
+			<h2>Ceylon</h2>
+				<div id="media">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/nggJhxh8G9Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div></h2>
+				<p>Due to my work on wildcards, I came into contact with the <a href="http://ceylon-lang.org/">Ceylon</a> team at <a href="http://www.redhat.com/">Red Hat</a>. They were developing a next-generation object-oriented industry-scale programming language, attempting to incorporate all the experience offered by languages such as Java, C#, Scala, Smalltalk, and Python over the last decade or so. My role on the team was primarily as <a href="http://ceylon-lang.org/community/team">type-system advisor</a>, making sure Ceylon's powerful features all work together cohesively.</p>
+				<ul>
+					<li><a href="publications/shapes/"><b>Getting F-Bounded Polymorphism into Shape</b></a> (PLDI 2014)<br/>
+						&nbsp;&nbsp; with <a href="http://www.cs.cornell.edu/~blg59/">Ben Greenman</a> and <a href="http://www.cs.cornell.edu/~fabianm/">Fabian Muehlboeck</a></li>
+					<li><a href="publications/empower/"><b>Empowering Union and Intersection Types with Integrated Subtyping</b></a> (OOPSLA 2018)<br/>
+						&nbsp;&nbsp; with <a href="http://www.cs.cornell.edu/~fabianm/">Fabian Muehlboeck</a><br/></li>
+					<li>Lukas Eder: <a href="https://blog.jooq.org/2013/12/03/top-10-ceylon-language-features-i-wish-we-had-in-java/">Top 10 Ceylon Language Features I Wish We Had in Java</a></li>
+				</ul>
+
+			<h2>Awards</h2>
+				<ul>
+					<li>Distinguished Paper Award for <a href="publications/nomalive/">Sound Gradual Typing is Nominally Alive and Well</a> at OOPSLA 2017</li>
+					<li><a href="http://www.aito.org/Dahl-Nygaard/">Junior Dahl-Nygaard Prize 2017</a> <p>"Ross Tate has made fundamental contributions to type systems with applications to OO languages. This includes the discovery that although wildcards as in Java are undecidable in theory, programmers only use specific flavors of wildcards which keeps them decidable in practice (PLDI'11); similarly, he proposed that F-bounded polymorphism can be replaced by simpler concepts, which were sufficient for the use that programmers made of generics in a large corpus (PLDI'14). Finally, he discovered that Java wildcards and Scala path-dependent types, in combination with implicit null pointers, make the languages unsound (OOPSLA'16). In addition, he has had strong industrial impact via his involvement in the production languages Ceylon (Red Hat) and Kotlin (JetBrains)."</p></li>
+					<li>Distinguished Artifact Award for <a href="http://io.livecode.ch/learn/namin/unsound">Java and Scala's Type Systems are Unsound</a> at OOPSLA 2016</li>
+					<li><a href="http://research.microsoft.com/en-us/collaboration/awards/fellowships.aspx">Microsoft Research Fellowship</a> 2009</li>
+				</ul>
+
+			<h2>Students</h2>
+				<ul>
+					<li><a href="http://afsofia.dev/">Sofia Abreu Faro</a><!--a href="http://cornell.academia.edu/fmota">Fran Mota</a--></li>
+					<li><a href="http://www.cs.cornell.edu/~akhirsch/">Andrew Hirsch</a> (<a href="theses/hirsch-thesis.pdf">Thesis</a>)</li>
+					<li><a href="http://www.cs.cornell.edu/~fabianm/">Fabian Muehlboeck</a> (<a href="theses/muehlboeck-thesis.pdf">Thesis</a>)</li>
+					<li><a href="http://www.cs.cornell.edu/~nkounkou/">Brittany Nkounkou</a> (<a href="theses/nkounkou-thesis.pdf">Thesis</a>)</li>
+				</ul>
+
+			<h2>Classes</h2>
+				<p><a href="http://www.cs.cornell.edu/courses/cs6117/2020Sp/">CS-6117: Category Theory for Computer Scientists</a> (Spring 2020)</p>
+				<p><a href="http://www.cs.cornell.edu/courses/cs5152/2019Fa/">CS-5152: Open-Source Software Engineering</a> (Fall 2019)</p>
+				<p><a href="http://www.cs.cornell.edu/courses/cs5152/2019Sp/">CS-5152: Open-Source Software Engineering</a> (Spring 2019)</p>
+				<p><a href="http://www.cs.cornell.edu/courses/cs6117/2018Sp/">CS-6117: Category Theory for Computer Scientists</a> (Spring 2018)</p>
+				<p><a href="http://www.cs.cornell.edu/courses/cs5152/2017Sp/">CS-5152: Open-Source Software Engineering</a> (Spring 2017)</p>
+				<p><a href="http://www.cs.cornell.edu/courses/cs2110/2016Sp/">CS-2110: OO Programming and Data Structures</a> (Spring 2016)</p>
+				<p><a href="http://www.cs.cornell.edu/courses/cs5152/2015Sp/">CS-5152: Open-Source Software Engineering</a> (Spring 2015)</p>
+				<p><a href="http://www.cs.cornell.edu/courses/cs6117/2014Fa/">CS-6117: Category Theory for Computer Scientists</a> (Fall 2015)</p>
+				<p><a href="http://www.cs.cornell.edu/courses/cs5152/2014Sp/">CS-5152: Open-Source Software Engineering</a> (Spring 2014)</p>
+				<p><a href="http://www.cs.cornell.edu/courses/cs4120/2013Fa/">CS-4120/4121/5120/5121: Introduction to Compilers</a> (Fall 2014)</p>
+				<p><a href="http://www.cs.cornell.edu/courses/cs5152/2013Sp/">CS-5152: Open-Source Software Engineering</a> (Spring 2013)</p>
+				<p><a href="http://www.cs.cornell.edu/courses/cs6118/2012Fa/">CS-6118: Types and Semantics</a> (Fall 2013)</p>
+				<p><a href="http://csemoodle.ucsd.edu/">CSE-130: Programming Languages</a> (Summer Session II 2010)</p>
+
+			<h2>Research Internships</h2>
+				<p>I interned under <a href="http://research.microsoft.com/~daan/">Daan Leijen</a> at Microsoft Research in Redmond in Summer/Fall 2009. We designed a pure but effectful functional programming language, as well as a Hindley-Milner-like type inference algorithm with effects and higher-order polymorphism (based on Daan's <a href="http://research.microsoft.com/~daan/pubs.aspx">HMF</a>). In doing so, I improved compiler technology for inferring higher-ranked polymorphism. I also managed to generalize monads in order to formalize effect systems with multiple interacting effects.</p>
+				<img class="photobottom" src="capoeira.jpg" alt="Ross Tate Capoeira"/>
+				<p>I interned under <a href="http://research.microsoft.com/~juanchen/">Juan Chen</a> and <a href="http://research.microsoft.com/~chrishaw/">Chris Hawblitzel</a> at Microsoft Research in Redmond in Summer/Fall 2008. I designed a type-inference algorithm for an x86 assembly type system for object-oriented programs, as can be seen at <a href="publications/italx/">PLDI 2010</a>. This typed assembly language, which we called iTalX, is now a key part of Microsoft Research's computer-verified memory-safe operating system, <a href="http://research.microsoft.com/apps/pubs/?id=122884">Verve</a>. In order to design this inferable type system, I first designed a framework for existential types based on category theory, which has proven to be intuitive, powerful, and flexible. This framework was then reused for my work on Java's wildcards in <a href="publications/tamewild/">PLDI 2011</a>.</p>
+
+			<h2>Industry Internships</h2>
+				<p>I have interned at <a href="http://www.treyarch.com/">Treyarch</a>, a studio of Activision, twice now. The first time I worked on the early stages of the Spider-Man 3 console game. The second time I worked on Spider-Man: Web of Shadows. My biggest contributions were in improving the scripting language used by the game designers, and this may have somewhat fostered my enjoyment of programming languages. I also worked a lot with computational geometry and corresponding graph theory.</p>
+				<p>Before that, I interned at <a href="http://www.customflix.com/">CustomFlix</a>. At the time, CustomFlix was a very small internet company which processed, distributed, and marketed personal videos. I held various roles such as architect, tester, lead, and web developer.</p>
+
+			<h2>Post Script</h2>
+				<p>I stole this page from <a href="http://goto.ucsd.edu/~pmr/">Patrick &quot;Maxim&quot; Rondon</a>.</p>
+				<p>I found my <a href="http://albertalandsurveyhistory.ca/index.php?title=R.A.F._(Ross)_Tate">grandpa</a> online. Thought it was pretty cool.</p>
+		</div>
+	</body>
+</html>

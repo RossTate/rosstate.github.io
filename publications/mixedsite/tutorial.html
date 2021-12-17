@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<html>
+  <head>
+    <title>Formalism Tutorial</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css" />
+  </head>
+  <body>
+    <div id="personal">
+      <div id="media">
+        <div id="presentation" style="border-width:thin;border-color:#000000;border-style:solid">
+          <img src="subtyping.png" alt="Subtyping Rules"/>
+        </div>
+        <p align="center">The formal subtyping rules and algorithm for use-site variance</p>
+      </div>
+
+      <h1 class="name">Formalism Tutorial</h1>
+      <p>In programming-languages research, we use a special language of sorts for formalizing languages and algorithms. This is a quick tutorial on that language for all the non-academics. This should help you read the paper <a href="index.html">Mixed-Site Variance</a> by <a href="../..">Ross Tate</a>, among other academic publications.</p>
+    </div>
+
+    <div id="main">
+    	<h2>Symbols</h2>
+    	<p>First, let me break down the Greek a bit. &Gamma; is generally used to denote contexts. In this case, it specifies lower and upper (subtyping) bounds on type variables, which I'm denoting with <em>v</em>. &tau; is generally used to denote types. Here, we have special types &perp; (bottom) and &Tau; (top), which in the context of subtyping generally denote the subtype of everything and the supertype of everything respectively. The symbol &quot;&lt;:&quot; is a common notation for the subtype relation.</p>
+
+    	<h2>Judgements</h2>
+    	<p>Often a typing judgement is of the form &quot;(context) |- (property)&quot;; the &quot;|-&quot; symbol is read as &quot;entails&quot;. In our case, the judgement looks like &quot;&Gamma; |- &tau;<sub>1</sub> &lt;: &tau;<sub>2</sub>&quot;, expressing the (not necessarily true) statement &quot;with the constraints on type variables specified in &Gamma;, the type &tau;<sub>1</sub> is a subtype of &tau;<sub>2</sub>&quot;.</p>
+
+    	<h2>Rules</h2>
+    	<p>In the picture, there are all these things of the form &quot;(some number of judgements) over a long bar over (some judgement)&quot;. These are called rules and read as &quot;if everything above the bar (the premises) is true, then the thing below the bar (the conclusion) is true&quot;; any variable symbols used (e.g. &Gamma;, &tau;, and <em>v</em>) are implicitly universally quantified. So the first rule says that &perp; is a subtype of any type &tau; under any context &Gamma;, unconditionally since there is nothing above the bar. Similarly the second rule says that every type is a subtype of &Tau; under any context, and the third rule says every type variable is a subtype of itself. Moving on, the fourth rule says that a type &tau; is a subtype of a type variable <em>v</em> in context &Gamma; if &tau; is a subtype of the lower bound &tau;<sub>i</sub> of <em>v</em> specified by &Gamma;. The fifth rule is similar. The last rule I talk about in the paper, but let me explain some notation and vocabulary. The statement &quot;<em>v</em> is fresh&quot; means that <em>v</em> does not occur anywhere in the types being compared or in the context; it makes sure we do not accidentally use a variable name that already has some meaning. The notation &tau;[P |-&gt; &tau;'] represents the result of substituting (i.e. replacing) all the uses of type variable P in type &tau; with type &tau;'.</p>
+
+    	<h2>Algorithm</h2>
+    	<p>Specifications of subtyping systems often have rules for transitivity and subtyping. Here I have made those properties that can be proved about the system (under certain assumptions about &Gamma;). The reason is that I wanted my formalization to be <em>syntax directed</em>. Notice that, for every rule, every variable used above the bar is determined by the values/contents of the variables below the bar, or the specific value of that variable doesn't matter (e.g. the fresh variable <em>v</em>) or is determined by some global information (e.g. &tau;<sub>P</sub> is determined by the inheritance hierarchy). This fact actually gives you an algorithm for determining if two types are subtypes of each other (in some context). First, given a goal you want to prove, check which (if any) of the rules' conclusion matches your goal. Then for each of the variables in the premises, determine its value using the fact the rule is syntax directed. Finally, for each subytyping premise recursively repeat this pattern-matching process. Using this trick you get an algorithm for subtyping from the formal rules I presented. In the paper, you can extend this trick to get algorithms for tight approximation, though you have to be a little fancier because this time there are input <em>and</em> output variables.</p>
+    </div>
+  </body>
+</html>

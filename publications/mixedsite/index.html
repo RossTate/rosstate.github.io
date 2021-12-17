@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<html>
+  <head>
+    <title>Mixed-Site Variance</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css" />
+  </head>
+  <body>
+    <div id="personal">
+      <div id="media">
+        <div id="presentation" style="border-width:thin;border-color:#000000;border-style:solid">
+          <a href="http://kotlin.jetbrains.org/"><img src="http://blog.jetbrains.com/wp-content/uploads/2012/12/kotlin-logo-263x300.png" alt="Kotlin"/></a>
+        </div>
+      </div>
+
+      <h1 class="name">Mixed-Site Variance</h1>
+      <p>FOOL 2013: <a href="mixedsite-tate-fool13.pdf">[pdf]</a> <a href="tutorial.html">(Quick Tutorial on Formal Notation)</a> <a href="index.html" onClick="window.open('bibtex.html','Mixed-Site Variance Bibtex','width=1080,height=220,top=100,left=100,scrollbars=Yes,resizable=yes');">[bibtex]</a></p>
+      <p>Author: <a href="../../">Ross Tate</a></p>
+      <p>In collaboration with Andrey Breslav on <a href="http://kotlin.jetbrains.org/">Kotlin</a> at <a href="http://www.jetbrains.org/">JetBrains</a></p>
+      <p>Translations: <a href="http://www.auto-doc.fr/edu/2017/01/11/mixed-sivuston-varianssi/">Finnish</a></p>
+    </div>
+
+    <div id="main">
+      <h2>Abstract</h2>
+        <p>Java introduced wildcards years ago. Wildcards were very expressive, and they were integral to updating the existing libraries to make use of generics. Unfortunately, wildcards were also complex and verbose, making them hard and inconvenient for programmers to adopt. Overall, while an impressive feature, wildcards are generally considered to be a failure. As such, many languages adopted a more restricted feature for generics, namely declaration-site variance, because designers believed its simplicity would make it easier for programmers to adopt. Indeed, declaration-site variance has been quite successful. However, it is also completely unhelpful for many designs, including many of those in the Java SDK. So, we have designed <em>mixed-site</em> variance, a careful combination of definition-site and use-site variance that avoids the failings of wildcards. We have been working with JetBrains to put this into practice by incorporating it into the design of their upcoming language, Kotlin. Here we exposit our design, our rationale, and our experiences.</p>
+
+      <h2>Questions, Comments, and Suggestions</h2>
+      <p>If you have any questions, comments, or suggestions, please e-mail me. I would be glad to know of any opinions people have or any clarifications I should make.</p>
+    </div>
+  </body>
+</html>

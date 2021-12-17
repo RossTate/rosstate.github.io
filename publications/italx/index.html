@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<html>
+  <head>
+    <title>Inferable Object-Oriented Typed Assembly Language</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css" />
+  </head>
+  <body>
+    <div id="personal">
+      <div id="media">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/HjdA3W6Mg-c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+      <h1 class="name">Inferable Object-Oriented Typed Assembly Language</h1>
+      <p>PLDI 2010: <a href="italx_tate_pldi10.pdf">[pdf]</a> <a href="italx_tate_pldi10.ps">[ps]</a> <a href="index.html" onClick="window.open('bibtex.html','Inferable Object-Oriented Typed Assembly Language','width=1080,height=220,top=100,left=100,scrollbars=Yes,resizable=yes');">[bibtex]</a> <a href="Tate-PLDI10.pptx">[pptx]</a> <a href="https://www.cs.cornell.edu/~ross/publications/italx/Tate-PLDI10.mp4">[mp4]</a></p>
+
+      <p>Authors: <a href="../../">Ross Tate</a>, <a href="http://research.microsoft.com/~juanchen/">Juan Chen</a>, and <a href="http://research.microsoft.com/~chrishaw/">Chris Hawblitzel</a></p>
+    </div>
+
+    <div id="main">
+      <h2>Abstract</h2>
+        <p>A certifying compiler preserves type information through compilation to assembly language programs, producing typed assembly language (TAL) programs that can be verified for safety independently so that the compiler does not need to be trusted. There are two challenges for adopting certifying compilation in practice. First, requiring every compiler transformation and optimization to preserve types is a large burden on compilers, especially when adopting certifying compilation into existing optimizing non-certifying compilers. Second, type annotations significantly increase the size of assembly language programs.</p>
+        <p>This paper proposes an alternative to traditional certifying compilers. It presents iTalX, the first inferable TAL type system that supports existential types, arrays, interfaces, and stacks. We have proved our inference algorithm is complete, meaning if an assembly language program is typeable with iTalX then our algorithm will infer an iTalX typing for that program. Furthermore, our algorithm is guaranteed to terminate even if the assembly language program is untypeable. We demonstrate that it is practical to infer such an expressive TAL by showing a prototype implementation of type inference for code compiled by Bartok, an optimizing C# compiler. Our prototype implementation infers complete type annotations for 98% of functions in a suite of realistic C# benchmarks. The typeinference time is about 8% of the compilation time. We needed to change only 2.5% of the compiler code, mostly adding new code for defining types and for writing types to object files. Most transformations are untouched. Type-annotation size is only 17% of the size of pure code and data, reducing type annotations in <a href="http://portal.acm.org/citation.cfm?id=1375604">our previous certifying compiler</a> by 60%. The compiler needs to preserve only essential type information such as method signatures, object-layout information, and types for static data and external labels. Even non-certifying compilers have most of this information available.</p>
+
+      <p><b>Cool Update:</b> iTalX is now a key part of Microsoft Research's computer-verified memory-safe operating system, <a href="http://research.microsoft.com/apps/pubs/?id=122884">Verve</a>!</p>
+
+      <p><b>By Popular Demand:</b> In the paper we mention that all of this was made possible by a category-theoretic framework that I designed for designing and inferring existential types. In fact, the very inference algorithm we use is specified as a categorical algorithm using this framework. Although this work is still in the process of getting published, many have expressed interest in seeing it, so I am posting the current version (with technical report) here: <a href="existentialstr.pdf">Inferable Existential Quantification</a>. Maybe I should get acquainted with stuff like arXiv... (Also, this same categorical algorithm is what I used for <a href="../tamewild/">Taming Wildcards in Java's Type System</a>, although much of that work has to deal with adapting to impredicativity which this framework is not intended to handle.)</p>
+
+      <h2>Questions, Comments, and Suggestions</h2>
+      <p>If you have any questions, comments, or suggestions, please e-mail us. We would be glad to know of any opinions people have or any clarifications we should make.</p>
+    </div>
+  </body>
+</html>
