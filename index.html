@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<html>
+<html lang="en-us">
 	<head>
 		<title>Ross Tate</title>
 		<link rel="stylesheet" type="text/css" href="style.css"/>
@@ -67,22 +67,20 @@
 		</script>
 	</head>
 	<body>
-		<div id="personal" style="margin-left:auto;margin-right:auto;border-bottom:2px solid black">
-			<table style="margin-left:auto;margin-right:auto"><tr>
-				<td style="vertical-align:middle">
-					<table style="margin-left:auto;margin-right:auto">
-						<tr><td align="center"><img src="http://www.clker.com/cliparts/r/q/M/X/h/0/shoe-print-th.png" height="30" width="20"/></td></tr>
-						<tr><td align="center" style="padding-top:5;padding-bottom:5"><div id="slider-vertical" style="height: 200px;"></div></td></tr>
-						<tr><td align="center" style="padding-bottom:25"><img src="http://subtalarsuperhero.files.wordpress.com/2012/02/foot3.png" height="30" width="20"/></td></tr>
+		<div class="personal">
+			<table><tr>
+				<td>
+					<table class="image-slider">
+						<tr><td align="center"><img src="http://www.clker.com/cliparts/r/q/M/X/h/0/shoe-print-th.png" height="30" width="20" alt="dress shoe"/></td></tr>
+						<tr><td align="center" style="padding-top:10px;padding-bottom:10px"><div id="slider-vertical" style="height: 200px;"></div></td></tr>
+						<tr><td align="center"><img src="http://subtalarsuperhero.files.wordpress.com/2012/02/foot3.png" height="30" width="20" alt="bare foot"/></td></tr>
 					</table>
 				</td>
-				<td style="vertical-align:middle" width="370" align="center">
+				<td width="370" align="center">
 					<a id="rossfull" href="images/RossHandstand.jpg"><img id="ross" class="photo" src="images/RossHandstand.jpg" alt="Ross Tate" style="float:none;vertical-align:middle" height="300"></a>
 				</td>
-				<td style="vertical-align:middle">
+				<td>
 					<h1 class="name">Ross Tate</h1>
-					<p>Computer Science Ph.D. at University of California, San Diego <font size="1"><a href="theses/tate-thesis.pdf">[Thesis]</a></font><br/>
-						Mathematics &amp; Computer Science B.S.s at Cal Poly, San Luis Obispo</p>
 					<p>
 					  <a id="email">ROT13(&quot;pbagnpg@ebffgngr.bet&quot;)</a>
 					  <script type="text/javascript">
@@ -99,128 +97,245 @@
 					    element.firstChild.nodeValue = y;
 					  </script>
 					</p>
-
-					<p>Graduate Advisor: <a href="http://cseweb.ucsd.edu/~lerner/">Sorin Lerner</a><br/>
-						Undergraduate Advisor: <a href="http://www.csc.calpoly.edu/~akeen/">Aaron Keen</a></p>
+					<h2 class="title">Researcher and Consultant</h2>
+					<h2 class="subtitle">Programming-Language Design and Implementation</h2>
+					<p>
+						Computer Science Ph.D. at University of California, San Diego <font size="1"><a href="theses/tate-thesis.pdf">[Thesis]</a></font><br/>
+						Mathematics &amp; Computer Science B.S.s at Cal Poly, San Luis Obispo
+					</p>
 				</td>
 			</tr></table>
 		</div>
 
 		<div id="main">
-			<div style="float:right;padding-left:2em;padding-right:2em;padding-bottom:1em;border-left-width:2px;border-left-style:solid;border-left-color:black;margin-left:2em;text-align:center">
-				 <h2 style="padding-top:0em">Talks</h2>
-				 <p id="ECOOP17"><img src="Tate-ECOOP17.png" style="border:2px solid black" alt="Retargeting Gradual Typing" onclick="document.getElementById('ECOOP17').innerHTML='&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/fARowS_O9t4?autoplay=1&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;'"/></p><p><a href="https://www.youtube.com/watch?v=fARowS_O9t4">Dahl-Nygaard Keynote<br/>@ ECOOP 2017</a></p>
-				 <p id="SPLASH16"><img src="Tate-SPLASH16.jpg" style="border:2px solid black" alt="SPLASH 2016: Nada Amin and Ross Tate on breaking Java and Scala's type system" onclick="document.getElementById('SPLASH16').innerHTML='&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/H_2y9wyOQN0?autoplay=1&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;'"/></p><p><a href="https://www.youtube.com/watch?v=H_2y9wyOQN0">Interview @ SPLASH 2016</a></p>
-				 <p id="CurryOn16"><img src="Tate-CurryOn16.png" style="border:2px solid black" alt="Redesigning Type Systems for Industry OO" onclick="document.getElementById('CurryOn16').innerHTML='&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/V9S8lU58K68?autoplay=1&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;'"/></p><p><a href="https://www.youtube.com/watch?v=V9S8lU58K68">Curry On! 2016</a></p>
-			</div>
+			<div class="tabs">
+				<input type="radio" name="tabs-main" id="tab-languages" checked />
+				<label for="tab-languages">Languages</label>
+				<div>
+					<div class="left-image-tabs">
+						<input type="radio" name="tabs-languages" id="tab-kotlin" checked />
+						<label for="tab-kotlin"><a href="https://kotlinlang.org/"><img src="images/languages/Kotlin.png" alt="Kotlin"/></a></label>
+						<div>
+							<p>
+								Before Kotlin was released, I worked with Andrey Breslav to design its type system.
+								In particular, we focused on how to design the bridge between the type system Kotlin wanted to have and the type system it needed to interoperate with: Java.
+								The two main challanges were nullability and wildcards.
+								For nullability, I designed the <code>!</code> operator, a form of sound gradual typing that lets Kotlin programmers &quot;optimistically&quot; treat Java values as non-null while also informing the compiler where to insert run-time checks.
+								For wildcards, I designed <a href="publications/mixedsite/">mixed-site variance</a>, which lets Kotlin programmers combine Kotlin's declaration-site variance with Java's use-site variance (encoded as wildcards).
+								Thus I designed Kotlin's platform types that proved critical to its initial adoption.
+							</p>
+						</div>
 
-			<h2>Publications</h2>
-				<p>The links below contain more than the usual pdf files; they contain an embedded video of the presentation and the powerpoint slides, for those people who would like a quick overview before reading the paper. They also have answers to common questions we have recieved.</p>
-				<ul>
-					<li><a href="publications/monnom/"><b>Transitioning from Structural to Nominal Code with Efficient Gradual Typing</b></a> (OOPSLA 2021)<br/>
-						&nbsp;&nbsp; with <a href="http://www.cs.cornell.edu/~fabianm/">Fabian Muehlboeck</a><br/></li>
-					<li><a href="https://dl.acm.org/doi/abs/10.1145/3485527"><b>Type Stability in Julia: Avoiding Performance Pathologies in JIT Compilation</b></a> (OOPSLA 2021)<br/>
-						&nbsp;&nbsp; with <a href="http://staff.mmcs.sfedu.ru/~ulysses/index.html">Artem Pelenitsyn</a>, <a href="https://julbinb.github.io/">Julia Belyakova</a>, <a href="https://benchung.github.io/">Benjamin Chung</a>, and <a href="http://janvitek.org/">Jan Vitek</a><br/></li>
-					<li><a href="https://ieeexplore.ieee.org/abstract/document/9470514"><b>Evidenced Frames: A Unifying Framework Broadening Realizability Models</b></a> (LICS 2021)<br/>
-						&nbsp;&nbsp; with <a href="https://www.cs.bgu.ac.il/~cliron/">Liron Cohen</a> and <a href="https://www.i2m.univ-amu.fr/perso/etienne.miquey/">Étienne Miquey</a><br/></li>
-					<li><a href="https://dl.acm.org/doi/10.1145/3428275"><b>World Age in Julia: Optimizing Method Dispatch in the Presence of Eval</b></a> (OOPSLA 2020)<br/>
-						&nbsp;&nbsp; with <a href="https://julbinb.github.io/">Julia Belyakova</a>, <a href="https://benchung.github.io/">Benjamin Chung</a>, Jack Galinas, Jameson Nash, and <a href="http://janvitek.org/">Jan Vitek</a><br/></li>
-					<li><a href="http://www.cs.cornell.edu/~akhirsch/pubs/first_order_logic_for_flow_limited_authorization.html"><b>First-Order Logic for Flow-Limited Authorization</b></a> (CSF 2020) (Workshop Version: FCS 2019)<br/>
-						&nbsp;&nbsp; with <a href="http://www.cs.cornell.edu/~akhirsch/">Andrew K. Hirsch</a>, <a href="http://www.cs.cornell.edu/~pamorim/">Pedro H. Azevedo de Amorim</a>, <a href="https://www.cs.cornell.edu/~ethan/">Ethan Cecchetti</a>, and <a href="https://users.soe.ucsc.edu/~owen/">Owen Arden</a><br/></li>
-					<li><a href="publications/effectful/"><b>The Effects of Effects on Constructivism</b></a> (MFPS 2019)<br/>
-						&nbsp;&nbsp; with <a href="https://www.cs.bgu.ac.il/~cliron/">Liron Cohen</a> and <a href="http://afsofia.dev/">Sofia Abreu Faro</a><br/></li>
-					<li><a href="publications/empower/"><b>Empowering Union and Intersection Types with Integrated Subtyping</b></a> (OOPSLA 2018)<br/>
-						&nbsp;&nbsp; with <a href="http://www.cs.cornell.edu/~fabianm/">Fabian Muehlboeck</a><br/></li>
-					<li><a href="publications/sleffects/"><b>Strict and Lazy Semantics for Effects: Layering Monads and Comonads</b></a> (ICFP 2018)<br/>
-						&nbsp;&nbsp; with <a href="http://www.cs.cornell.edu/~akhirsch/">Andrew K. Hirsch</a><br/></li>
-					<li><a href="publications/nomalive/"><b>Sound Gradual Typing is Nominally Alive and Well</b></a> (OOPSLA 2017) (Distinguished Paper Award)<br/>
-						&nbsp;&nbsp; with <a href="http://www.cs.cornell.edu/~fabianm/">Fabian Muehlboeck</a><br/></li>
-					<li><a href="http://io.livecode.ch/learn/namin/unsound"><b>Java and Scala's Type Systems are Unsound</b></a> (OOPSLA 2016) (Distinguished Artifact Award)<br/>
-						&nbsp;&nbsp; with <a href="http://namin.net/">Nada Amin</a><br/></li>
-					<li><a href="publications/chpeffects/"><b>Preventing Glitches and Short Circuits in High-Level Self-Timed Chip Specifications</b></a> (PLDI 2015)<br/>
-						&nbsp;&nbsp; with <a href="http://www.stephenlongfield.com/">Stephen Longfield</a>, <a href="http://www.cs.cornell.edu/~nkounkou/">Brittany Nkounkou</a>, and <a href="http://vlsi.cornell.edu/~rajit/">Rajit Manohar</a><br/></li>
-					<li><a href="publications/shapes/"><b>Getting F-Bounded Polymorphism into Shape</b></a> (PLDI 2014)<br/>
-						&nbsp;&nbsp; with <a href="http://www.cs.cornell.edu/~blg59/">Ben Greenman</a> and <a href="http://www.cs.cornell.edu/~fabianm/">Fabian Muehlboeck</a><br/>
-						&nbsp;&nbsp; and consultation from the <a href="http://ceylon-lang.org/">Ceylon</a> team at <a href="http://www.redhat.com/">Red Hat</a></li>
-					<li><a href="publications/mixedsite/"><b>Mixed-Site Variance</b></a> (FOOL 2013)<br/>
-						&nbsp;&nbsp; with consultation from the <a href="http://kotlin.jetbrains.org/">Kotlin</a> team at <a href="http:/www.jetbrains.org/">JetBrains</a></li>
-					<li><a href="publications/productors/"><b>The Sequential Semantics of Producer Effect Systems</b><a/> (POPL 2013)</b></li>
-					<li><a href="publications/tamewild/"><b>Taming Wildcards in Java's Type System</b></a> (PLDI 2011)<br/>
-						&nbsp;&nbsp; with <a href="http://cseweb.ucsd.edu/~atl017/">Alan Leung</a> and <a href="http://cseweb.ucsd.edu/~lerner/">Sorin Lerner</a></li>
-					<li><a href="publications/italx/"><b>Inferable Object-Oriented Type Assembly Language</b></a> (PLDI 2010)<br/>
-						&nbsp;&nbsp; with <a href="http://research.microsoft.com/~juanchen/">Juan Chen</a> and <a href="http://research.microsoft.com/~chrishaw/">Chris Hawblitzel</a></li>
-					<li><a href="publications/proofgen/"><b>Generating Compiler Optimizations from Proofs</b></a> (POPL 2010)<br/>
-						&nbsp;&nbsp; with <a href="http://cseweb.ucsd.edu/~mstepp/">Michael Stepp</a> and <a href="http://cseweb.ucsd.edu/~lerner/">Sorin Lerner</a></li>
-					<li><a href="publications/eqsat/"><b>Equality Saturation: A New Approach to Optimization</b></a> (POPL 2009, LMCS 2011, CAV 2011)<br/>
-						&nbsp;&nbsp; with <a href="http://cseweb.ucsd.edu/~mstepp/">Michael Stepp</a>, <a href="http://cseweb.ucsd.edu/~ztatlock/">Zachary Tatlock</a>, and <a href="http://cseweb.ucsd.edu/~lerner/">Sorin Lerner</a></li>
-				</ul>
+						<input type="radio" name="tabs-languages" id="tab-java" />
+						<label for="tab-java"><a href="https://www.oracle.com/java/"><img src="images/languages/Java.png" alt="Java"/></a></label>
+						<div>
+							<p>
+								Java is one of the most thoroughly studied programming languages.
+								Yet, despite many years of academic verification, I discovered that <a href="">Java's type system is unsound</a>&mdash;even without using backdoors like raw types or covariant arrays, you can trick the type system into believing a <code>String</code> object is an <code>Integer</code> object.
+								It turns out that everyone had overlooked null pointers!
+								As another problem, <a href="https://dl.acm.org/doi/10.1145/3093333.3009871">Java subtyping is undecidable</a>.
+								While that is not my discovery, my students and I discovered why this does not affect programmers in practice.
+								In particular, even though programmers have had access to the full expressiveness of F-bounded polymorphism (i.e.&nbsp;recursive type constraints) for over a decade, programmers only ever used it to encode particular patterns akin to Haskell's type classes.
+								I proved that, because real Java programs conform to <a href="publications/shapes/">material-shape separation</a>, the standard subtyping algorithm is actually complete in practice.
+							</p>
+						</div>
+						
+						<input type="radio" name="tabs-languages" id="tab-scala" />
+						<label for="tab-scala"><a href="https://www.scala-lang.org/"><img src="images/languages/Scala.png" alt="Scala"/></a></label>
+						<div>
+							<p>
+								The discovery of Java's unsoundness actually started with Scala.
+								Back when she was developing the core calculus for Scala, <a href="http://namin.net/">Nada Amin</a> and I discovered that the calculus would be unsound if extended with null pointers.
+								Since Scala already had null pointers and all of the features of the calculus, we were quickly able to develop an unsound Scala program, and Nada created an <a href="https://io.livecode.ch/learn/namin/unsound">unsound playground</a> where you can play with these and try to make your own examples.
+							</p>
+						</div>
+						
+						<input type="radio" name="tabs-languages" id="tab-ceylon" />
+						<label for="tab-ceylon"><a href="https://projects.eclipse.org/projects/technology.ceylon"><img src="images/languages/Ceylon.png" alt="Ceylon"/></a></label>
+						<div>
+							<p>
+								Now just a part of history, the Ceylon programming language&mdash;led by Gavin King at Red Hat&mdash;began development back when there was a massive gap between Java and Scala (and before Kotlin was around).
+								The team was developing a next-generation object-oriented industry-scale programming language, attempting to incorporate all the experience offered by languages such as Java, C#, Scala, Smalltalk, and Python over the last decade or so.
+								My role on the team was primarily as type-system advisor, making sure Ceylon's powerful features all worked together cohesively.
+								Although it failed to achieve widespread adoption, <a href="https://blog.jooq.org/2013/12/03/top-10-ceylon-language-features-i-wish-we-had-in-java/">many of its features</a>&mdash;particularly of its type system&mdash;would find there way into other major languages, notably Java, Scala, and Kotlin.
+							</p>
+						</div>
+						
+						<input type="radio" name="tabs-languages" id="tab-julia" />
+						<label for="tab-julia"><a href="https://julialang.org/"><img src="images/languages/Julia.png" alt="Julia"/></a></label>
+						<div>
+							<p>
+								Along with <a href="http://janvitek.org/">Jan Vitek</a> and his research group, I have been working with the Julia language team to fix issues with the run-time type system.
+								In particular, we determined that Julia's subtyping system, which is used at run time to determine which method a function call resolves to, is undecidable.
+								This means it is impossible to implement Julia's runtime correctly.
+								So we analyzed Julia programs and determined a restriction on types that real programs already conform to and yet exhibit an innate hierarchical structure that makes them much easier to work with.
+								With that pragmatic structure on place, we are developing an improved subtyping algorithm capable of completely handling the entirety of Julia's rich feature set.
+							</p>
+						</div>
+						
+						<input type="radio" name="tabs-languages" id="tab-csharp" />
+						<label for="tab-csharp"><a href="https://dotnet.microsoft.com/en-us/languages/csharp"><img src="images/languages/CSharp.png" alt="C#"/></a></label>
+						<div>
+							<p>
+								My contributions above have all been for user-facing languages.
+								But user-facing languages are compiled to low-level languages.
+								While working with Juan Chen and <a href="http://research.microsoft.com/~chrishaw/">Chris Hawblitzel</a> at Microsoft Research in Redmond, I designed an <a href="publications/italx/">inferable typed variant of x86</a> that an operating system or virtual machine could independently validate to ensure the program was memory safe.
+								We ensured this could support all compiled C# programs, even with C#'s support for many low-level representation and execution optimizations.
+								We even supported nearly all optimizations existing C# compilers employed, and as such our typed assembly had low-percentage overhead relative to raw compiled x86 programs.
+							</p>
+						</div>
+						
+						<input type="radio" name="tabs-languages" id="tab-webassembly" />
+						<label for="tab-webassembly"><a href="https://webassembly.org/"><img src="images/languages/WebAssembly.svg" alt="WebAssembly"/></a></label>
+						<div>
+							<p>
+								WebAssembly is a web standard for a low-level language.
+								Unfortunately, it is nowhere near as efficient as a typed assembly language, with many language teams finding their WebAssembly programs are multiple times slower than their native counterparts.
+								So I have been working with the standards committee to integrate insights from typed assembly languages and to broaden understanding of the wide range of low-level techniques that various programming languages need WebAssembly to support in order to perform well.
+							</p>
+						</div>
+					</div>
+				</div>
+  
+				<input type="radio" name="tabs-main" id="tab-research" />
+				<label for="tab-research">Research</label>
+				<div>
+					<blockquote cite="https://sites.google.com/aito.org/home/aito-dahl-nygaard/2017-winners">
+						Ross Tate has made fundamental contributions to type systems with applications to OO languages. This includes the discovery that although wildcards as in Java are undecidable in theory, programmers only use specific flavors of wildcards which keeps them decidable in practice (PLDI'11); similarly, he proposed that F-bounded polymorphism can be replaced by simpler concepts, which were sufficient for the use that programmers made of generics in a large corpus (PLDI'14). Finally, he discovered that Java wildcards and Scala path-dependent types, in combination with implicit null pointers, make the languages unsound (OOPSLA'16). In addition, he has had strong industrial impact via his involvement in the production languages Ceylon (Red Hat) and Kotlin (JetBrains).
+						<footer>—<a href="https://sites.google.com/aito.org/home/aito-dahl-nygaard/2017-winners"><cite>Junior Dahl-Nygaard Prize 2017</cite></a></footer>
+					</blockquote>
 
-			<h2>Articles</h2>
-				<ul>
-					<li><a href="https://hackernoon.com/java-is-unsound-28c84cb2b3f"><b>Java is Unsound: The Industry Perspective</b></a> (2017)<br/>
-						&nbsp;&nbsp; featured by <a href="https://hackernoon.com/java-is-unsound-28c84cb2b3f">HackerNoon</a> and <a href="https://dev.to/rosstate/java-is-unsound-the-industry-perspective">dev.to</a>
-				</ul>
+					<div style="display:flex; width:100%; justify-content:space-between; flex-wrap: wrap;">
+						<div>
+							<h2>Former Students</h2>
+								<ul>
+									<li><a href="http://afsofia.dev/">Sofia Abreu Faro</a></li>
+									<li><a href="https://akhirsch.science/">Andrew K.&nbsp;Hirsch</a> (<a href="theses/hirsch-thesis.pdf">Thesis</a>)</li>
+									<li><a href="https://fabian.muehlboeck.name/">Fabian Muehlboeck</a> (<a href="theses/muehlboeck-thesis.pdf">Thesis</a>)</li>
+									<li><a href="http://www.cs.cornell.edu/~nkounkou/">Brittany Nkounkou</a> (<a href="theses/nkounkou-thesis.pdf">Thesis</a>)</li>
+								</ul>
+						</div>
+						<div>
+							<h2>Former Advisors</h2>
+								<dl>
+									<dt>Graduate</dt><dd><a href="http://cseweb.ucsd.edu/~lerner/">Sorin Lerner</a></dd>
+									<dt>Undergraduate</dt><dd><a href="http://www.csc.calpoly.edu/~akeen/">Aaron Keen</a></dd>
+								</dl>
+						</div>
+					</div>
 
-			<h2>Kotlin</h2>
-				<p>Due to my work on wildcards and Ceylon, I came into contact with the <a href="http://kotlin.jetbrains.org/">Kotlin</a> team at <a href="http://www.jetbrains.org/">JetBrains</a>. They, too, are developing a next-generation object-oriented industry-scale programming language, and am acting primarily as a type-system advisor there as well. The two projects are very different, both in how they operate, and in what they are working towards. The contrast has been very educational, offering a diverse set of opinions on potential features or refinements, and resulting in subtle but important differences in the problems at hand. Most recently I have written a paper on a system I developed for Kotlin, which has a strong need to mix use-site and declaration-site variance together for purposes of compatibility and usability.</p>
-				<ul><li><a href="publications/mixedsite/"><b>Mixed-Site Variance</b></a> (FOOL 2013)</li></ul>
+					<h2>Awards</h2>
+						<ul>
+							<li>Distinguished Paper Award for <a href="publications/nomalive/">Sound Gradual Typing is Nominally Alive and Well</a> at OOPSLA 2017</li>
+							<li>Distinguished Artifact Award for <a href="http://io.livecode.ch/learn/namin/unsound">Java and Scala's Type Systems are Unsound</a> at OOPSLA 2016</li>
+							<li><a href="https://www.microsoft.com/en-us/research/academic-program/phd-fellowship/">Microsoft Research Fellowship</a> 2009</li>
+						</ul>
+					
+					<h2>Publications</h2>
+					<ul>
+						<li><a href="publications/monnom/"><b>Transitioning from Structural to Nominal Code with Efficient Gradual Typing</b></a> (OOPSLA 2021)<br/>
+							&nbsp;&nbsp; with <a href="https://fabian.muehlboeck.name/">Fabian Muehlboeck</a><br/></li>
+						<li><a href="https://dl.acm.org/doi/abs/10.1145/3485527"><b>Type Stability in Julia: Avoiding Performance Pathologies in JIT Compilation</b></a> (OOPSLA 2021)<br/>
+							&nbsp;&nbsp; with <a href="https://a.pelenitsyn.top/">Artem Pelenitsyn</a>, <a href="https://julbinb.github.io/">Julia Belyakova</a>, <a href="https://benchung.github.io/">Benjamin Chung</a>, and <a href="http://janvitek.org/">Jan Vitek</a><br/></li>
+						<li><a href="https://ieeexplore.ieee.org/abstract/document/9470514"><b>Evidenced Frames: A Unifying Framework Broadening Realizability Models</b></a> (LICS 2021)<br/>
+							&nbsp;&nbsp; with <a href="https://www.cs.bgu.ac.il/~cliron/">Liron Cohen</a> and <a href="https://www.i2m.univ-amu.fr/perso/etienne.miquey/">Étienne Miquey</a><br/></li>
+						<li><a href="https://dl.acm.org/doi/10.1145/3428275"><b>World Age in Julia: Optimizing Method Dispatch in the Presence of Eval</b></a> (OOPSLA 2020)<br/>
+							&nbsp;&nbsp; with <a href="https://julbinb.github.io/">Julia Belyakova</a>, <a href="https://benchung.github.io/">Benjamin Chung</a>, Jack Galinas, Jameson Nash, and <a href="http://janvitek.org/">Jan Vitek</a><br/></li>
+						<li><a href="http://www.cs.cornell.edu/~akhirsch/pubs/first_order_logic_for_flow_limited_authorization.html"><b>First-Order Logic for Flow-Limited Authorization</b></a> (CSF 2020) (Workshop Version: FCS 2019)<br/>
+							&nbsp;&nbsp; with <a href="https://akhirsch.science/">Andrew K.&nbsp;Hirsch</a>, <a href="http://www.cs.cornell.edu/~pamorim/">Pedro H.&nbsp;Azevedo de Amorim</a>, <a href="https://cecchetti.sites.cs.wisc.edu/">Ethan Cecchetti</a>, and <a href="https://users.soe.ucsc.edu/~owen/">Owen Arden</a><br/></li>
+						<li><a href="publications/effectful/"><b>The Effects of Effects on Constructivism</b></a> (MFPS 2019)<br/>
+							&nbsp;&nbsp; with <a href="https://www.cs.bgu.ac.il/~cliron/">Liron Cohen</a> and <a href="http://afsofia.dev/">Sofia Abreu Faro</a><br/></li>
+						<li><a href="publications/empower/"><b>Empowering Union and Intersection Types with Integrated Subtyping</b></a> (OOPSLA 2018)<br/>
+							&nbsp;&nbsp; with <a href="https://fabian.muehlboeck.name/">Fabian Muehlboeck</a><br/></li>
+						<li><a href="publications/sleffects/"><b>Strict and Lazy Semantics for Effects: Layering Monads and Comonads</b></a> (ICFP 2018)<br/>
+							&nbsp;&nbsp; with <a href="https://akhirsch.science/">Andrew K.&nbsp;Hirsch</a><br/></li>
+						<li><a href="publications/nomalive/"><b>Sound Gradual Typing is Nominally Alive and Well</b></a> (OOPSLA 2017) (Distinguished Paper Award)<br/>
+							&nbsp;&nbsp; with <a href="https://fabian.muehlboeck.name/">Fabian Muehlboeck</a><br/></li>
+						<li><a href="http://io.livecode.ch/learn/namin/unsound"><b>Java and Scala's Type Systems are Unsound</b></a> (OOPSLA 2016) (Distinguished Artifact Award)<br/>
+							&nbsp;&nbsp; with <a href="http://namin.net/">Nada Amin</a><br/></li>
+						<li><a href="publications/chpeffects/"><b>Preventing Glitches and Short Circuits in High-Level Self-Timed Chip Specifications</b></a> (PLDI 2015)<br/>
+							&nbsp;&nbsp; with <a href="http://www.stephenlongfield.com/">Stephen Longfield</a>, <a href="http://www.cs.cornell.edu/~nkounkou/">Brittany Nkounkou</a>, and <a href="http://vlsi.cornell.edu/~rajit/">Rajit Manohar</a><br/></li>
+						<li><a href="publications/shapes/"><b>Getting F-Bounded Polymorphism into Shape</b></a> (PLDI 2014)<br/>
+							&nbsp;&nbsp; with <a href="https://users.cs.utah.edu/~blg/">Ben Greenman</a> and <a href="https://fabian.muehlboeck.name/">Fabian Muehlboeck</a><br/>
+							&nbsp;&nbsp; and consultation from the <a href="https://projects.eclipse.org/projects/technology.ceylon">Ceylon</a> team at <a href="http://www.redhat.com/">Red Hat</a></li>
+						<li><a href="publications/mixedsite/"><b>Mixed-Site Variance</b></a> (FOOL 2013)<br/>
+							&nbsp;&nbsp; with consultation from the <a href="https://kotlinlang.org/">Kotlin</a> team at <a href="http:/www.jetbrains.org/">JetBrains</a></li>
+						<li><a href="publications/productors/"><b>The Sequential Semantics of Producer Effect Systems</b><a/> (POPL 2013)</b></li>
+						<li><a href="publications/tamewild/"><b>Taming Wildcards in Java's Type System</b></a> (PLDI 2011)<br/>
+							&nbsp;&nbsp; with <a href="http://cseweb.ucsd.edu/~atl017/">Alan Leung</a> and <a href="http://cseweb.ucsd.edu/~lerner/">Sorin Lerner</a></li>
+						<li><a href="publications/italx/"><b>Inferable Object-Oriented Type Assembly Language</b></a> (PLDI 2010)<br/>
+							&nbsp;&nbsp; with Juan Chen and <a href="http://research.microsoft.com/~chrishaw/">Chris Hawblitzel</a></li>
+						<li><a href="publications/proofgen/"><b>Generating Compiler Optimizations from Proofs</b></a> (POPL 2010)<br/>
+							&nbsp;&nbsp; with <a href="https://goto.ucsd.edu/~mstepp/">Michael Stepp</a> and <a href="http://cseweb.ucsd.edu/~lerner/">Sorin Lerner</a></li>
+						<li><a href="publications/eqsat/"><b>Equality Saturation: A New Approach to Optimization</b></a> (POPL 2009, LMCS 2011, CAV 2011)<br/>
+							&nbsp;&nbsp; with <a href="https://goto.ucsd.edu/~mstepp/">Michael Stepp</a>, <a href="https://ztatlock.net/">Zachary Tatlock</a>, and <a href="http://cseweb.ucsd.edu/~lerner/">Sorin Lerner</a></li>
+					</ul>
+				</div>
+  
+				<!--input type="radio" name="tabs-main" id="tab-outreach" />
+				<label for="tab-outreach">Outreach</label>
+				<div>
+					<h2>Articles</h2>
+						<ul>
+							<li><a href="https://hackernoon.com/java-is-unsound-28c84cb2b3f"><b>Java is Unsound: The Industry Perspective</b></a> (2017)<br/>
+								&nbsp;&nbsp; featured by <a href="https://hackernoon.com/java-is-unsound-28c84cb2b3f">HackerNoon</a> and <a href="https://dev.to/rosstate/java-is-unsound-the-industry-perspective">dev.to</a>
+						</ul>
+					
+					<h2>Interviews</h2>
+						<p id="SPLASH16"><img src="Tate-SPLASH16.jpg" style="border:2px solid black" alt="SPLASH 2016: Nada Amin and Ross Tate on breaking Java and Scala's type system" onclick="document.getElementById('SPLASH16').innerHTML='&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/H_2y9wyOQN0?autoplay=1&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;'"/></p><p><a href="https://www.youtube.com/watch?v=H_2y9wyOQN0">Interview @ SPLASH 2016</a></p>
 
-			<h2>Ceylon</h2>
-				<div id="media">
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/nggJhxh8G9Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-				</div></h2>
-				<p>Due to my work on wildcards, I came into contact with the <a href="http://ceylon-lang.org/">Ceylon</a> team at <a href="http://www.redhat.com/">Red Hat</a>. They were developing a next-generation object-oriented industry-scale programming language, attempting to incorporate all the experience offered by languages such as Java, C#, Scala, Smalltalk, and Python over the last decade or so. My role on the team was primarily as <a href="http://ceylon-lang.org/community/team">type-system advisor</a>, making sure Ceylon's powerful features all work together cohesively.</p>
-				<ul>
-					<li><a href="publications/shapes/"><b>Getting F-Bounded Polymorphism into Shape</b></a> (PLDI 2014)<br/>
-						&nbsp;&nbsp; with <a href="http://www.cs.cornell.edu/~blg59/">Ben Greenman</a> and <a href="http://www.cs.cornell.edu/~fabianm/">Fabian Muehlboeck</a></li>
-					<li><a href="publications/empower/"><b>Empowering Union and Intersection Types with Integrated Subtyping</b></a> (OOPSLA 2018)<br/>
-						&nbsp;&nbsp; with <a href="http://www.cs.cornell.edu/~fabianm/">Fabian Muehlboeck</a><br/></li>
-					<li>Lukas Eder: <a href="https://blog.jooq.org/2013/12/03/top-10-ceylon-language-features-i-wish-we-had-in-java/">Top 10 Ceylon Language Features I Wish We Had in Java</a></li>
-				</ul>
-
-			<h2>Awards</h2>
-				<ul>
-					<li>Distinguished Paper Award for <a href="publications/nomalive/">Sound Gradual Typing is Nominally Alive and Well</a> at OOPSLA 2017</li>
-					<li><a href="http://www.aito.org/Dahl-Nygaard/">Junior Dahl-Nygaard Prize 2017</a> <p>"Ross Tate has made fundamental contributions to type systems with applications to OO languages. This includes the discovery that although wildcards as in Java are undecidable in theory, programmers only use specific flavors of wildcards which keeps them decidable in practice (PLDI'11); similarly, he proposed that F-bounded polymorphism can be replaced by simpler concepts, which were sufficient for the use that programmers made of generics in a large corpus (PLDI'14). Finally, he discovered that Java wildcards and Scala path-dependent types, in combination with implicit null pointers, make the languages unsound (OOPSLA'16). In addition, he has had strong industrial impact via his involvement in the production languages Ceylon (Red Hat) and Kotlin (JetBrains)."</p></li>
-					<li>Distinguished Artifact Award for <a href="http://io.livecode.ch/learn/namin/unsound">Java and Scala's Type Systems are Unsound</a> at OOPSLA 2016</li>
-					<li><a href="http://research.microsoft.com/en-us/collaboration/awards/fellowships.aspx">Microsoft Research Fellowship</a> 2009</li>
-				</ul>
-
-			<h2>Students</h2>
-				<ul>
-					<li><a href="http://afsofia.dev/">Sofia Abreu Faro</a><!--a href="http://cornell.academia.edu/fmota">Fran Mota</a--></li>
-					<li><a href="http://www.cs.cornell.edu/~akhirsch/">Andrew Hirsch</a> (<a href="theses/hirsch-thesis.pdf">Thesis</a>)</li>
-					<li><a href="http://www.cs.cornell.edu/~fabianm/">Fabian Muehlboeck</a> (<a href="theses/muehlboeck-thesis.pdf">Thesis</a>)</li>
-					<li><a href="http://www.cs.cornell.edu/~nkounkou/">Brittany Nkounkou</a> (<a href="theses/nkounkou-thesis.pdf">Thesis</a>)</li>
-				</ul>
-
-			<h2>Classes</h2>
-				<p><a href="http://www.cs.cornell.edu/courses/cs6117/2020Sp/">CS-6117: Category Theory for Computer Scientists</a> (Spring 2020)</p>
-				<p><a href="http://www.cs.cornell.edu/courses/cs5152/2019Fa/">CS-5152: Open-Source Software Engineering</a> (Fall 2019)</p>
-				<p><a href="http://www.cs.cornell.edu/courses/cs5152/2019Sp/">CS-5152: Open-Source Software Engineering</a> (Spring 2019)</p>
-				<p><a href="http://www.cs.cornell.edu/courses/cs6117/2018Sp/">CS-6117: Category Theory for Computer Scientists</a> (Spring 2018)</p>
-				<p><a href="http://www.cs.cornell.edu/courses/cs5152/2017Sp/">CS-5152: Open-Source Software Engineering</a> (Spring 2017)</p>
-				<p><a href="http://www.cs.cornell.edu/courses/cs2110/2016Sp/">CS-2110: OO Programming and Data Structures</a> (Spring 2016)</p>
-				<p><a href="http://www.cs.cornell.edu/courses/cs5152/2015Sp/">CS-5152: Open-Source Software Engineering</a> (Spring 2015)</p>
-				<p><a href="http://www.cs.cornell.edu/courses/cs6117/2014Fa/">CS-6117: Category Theory for Computer Scientists</a> (Fall 2015)</p>
-				<p><a href="http://www.cs.cornell.edu/courses/cs5152/2014Sp/">CS-5152: Open-Source Software Engineering</a> (Spring 2014)</p>
-				<p><a href="http://www.cs.cornell.edu/courses/cs4120/2013Fa/">CS-4120/4121/5120/5121: Introduction to Compilers</a> (Fall 2014)</p>
-				<p><a href="http://www.cs.cornell.edu/courses/cs5152/2013Sp/">CS-5152: Open-Source Software Engineering</a> (Spring 2013)</p>
-				<p><a href="http://www.cs.cornell.edu/courses/cs6118/2012Fa/">CS-6118: Types and Semantics</a> (Fall 2013)</p>
-				<p><a href="http://csemoodle.ucsd.edu/">CSE-130: Programming Languages</a> (Summer Session II 2010)</p>
-
-			<h2>Research Internships</h2>
-				<p>I interned under <a href="http://research.microsoft.com/~daan/">Daan Leijen</a> at Microsoft Research in Redmond in Summer/Fall 2009. We designed a pure but effectful functional programming language, as well as a Hindley-Milner-like type inference algorithm with effects and higher-order polymorphism (based on Daan's <a href="http://research.microsoft.com/~daan/pubs.aspx">HMF</a>). In doing so, I improved compiler technology for inferring higher-ranked polymorphism. I also managed to generalize monads in order to formalize effect systems with multiple interacting effects.</p>
-				<img class="photobottom" src="capoeira.jpg" alt="Ross Tate Capoeira"/>
-				<p>I interned under <a href="http://research.microsoft.com/~juanchen/">Juan Chen</a> and <a href="http://research.microsoft.com/~chrishaw/">Chris Hawblitzel</a> at Microsoft Research in Redmond in Summer/Fall 2008. I designed a type-inference algorithm for an x86 assembly type system for object-oriented programs, as can be seen at <a href="publications/italx/">PLDI 2010</a>. This typed assembly language, which we called iTalX, is now a key part of Microsoft Research's computer-verified memory-safe operating system, <a href="http://research.microsoft.com/apps/pubs/?id=122884">Verve</a>. In order to design this inferable type system, I first designed a framework for existential types based on category theory, which has proven to be intuitive, powerful, and flexible. This framework was then reused for my work on Java's wildcards in <a href="publications/tamewild/">PLDI 2011</a>.</p>
-
-			<h2>Industry Internships</h2>
-				<p>I have interned at <a href="http://www.treyarch.com/">Treyarch</a>, a studio of Activision, twice now. The first time I worked on the early stages of the Spider-Man 3 console game. The second time I worked on Spider-Man: Web of Shadows. My biggest contributions were in improving the scripting language used by the game designers, and this may have somewhat fostered my enjoyment of programming languages. I also worked a lot with computational geometry and corresponding graph theory.</p>
-				<p>Before that, I interned at <a href="http://www.customflix.com/">CustomFlix</a>. At the time, CustomFlix was a very small internet company which processed, distributed, and marketed personal videos. I held various roles such as architect, tester, lead, and web developer.</p>
-
-			<h2>Post Script</h2>
-				<p>I stole this page from <a href="http://goto.ucsd.edu/~pmr/">Patrick &quot;Maxim&quot; Rondon</a>.</p>
-				<p>I found my <a href="http://albertalandsurveyhistory.ca/index.php?title=R.A.F._(Ross)_Tate">grandpa</a> online. Thought it was pretty cool.</p>
+					<h2>Presentations</h2>
+						<p id="ECOOP17"><img src="Tate-ECOOP17.png" style="border:2px solid black" alt="Retargeting Gradual Typing" onclick="document.getElementById('ECOOP17').innerHTML='&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/fARowS_O9t4?autoplay=1&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;'"/></p><p><a href="https://www.youtube.com/watch?v=fARowS_O9t4">Dahl-Nygaard Keynote<br/>@ ECOOP 2017</a></p>
+						<p id="CurryOn16"><img src="Tate-CurryOn16.png" style="border:2px solid black" alt="Redesigning Type Systems for Industry OO" onclick="document.getElementById('CurryOn16').innerHTML='&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/V9S8lU58K68?autoplay=1&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;'"/></p><p><a href="https://www.youtube.com/watch?v=V9S8lU58K68">Curry On! 2016</a></p>
+						<div id="media">
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/nggJhxh8G9Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
+				</div-->
+  
+				<input type="radio" name="tabs-main" id="tab-history" />
+				<label for="tab-history">History</label>
+				<div>
+					<h2>Professorship</h2>
+						<p>
+							I was an Assistant Professor at Cornell University for many years.
+							Besides research and teaching, I am proud of the impact I had on many campus communities.
+							At the graduate level, I fostered regular social events between students, staff, and faculty across the College of Computer and Information Science to form better relationships across these groups.
+							At the undergraduate level, I worked with undergraduates to address issues with elitism, sexism, and racism.
+							In particular, I worked with students to organize large student body community discussions of its issues, helping students see they were not alone in their struggles, raising broader awareness of the issues, and working together to identify changes we could make as a community and individually to improve the circumstances.
+							I was honored to be invited to serve on the newly formed <a href="https://wicc.cornell.edu/">Women in Computing at Cornell</a>'s <a href="https://wicc.cornell.edu/#/board#faculty">Faculty Board</a>, and to moderate student discussions for Cornell's former <em>Tapestry of Possibilities: Diversity at Cornell</em> program.
+							Finally, though most of the credit goes by far to the student organizers, Junia George and Leon Zaruvinsky, and department event coordinator, Jessie White, I helped start&mdash;and maintained for many years&mdash;Cornell's main hackathon: <a href="https://www.bigredhacks.com/">BigRed//Hacks</a>.
+						</p>
+						<img class="photobottom" src="capoeira.jpg" alt="Ross Tate Capoeira"/>
+						<h3>Classes</h3>
+						<ul class="classes">
+							<li><a href="http://www.cs.cornell.edu/courses/cs6117/2020Sp/">CS-6117: Category Theory for Computer Scientists</a> (Spring 2020)</li>
+							<li><a href="http://www.cs.cornell.edu/courses/cs5152/2019Fa/">CS-5152: Open-Source Software Engineering</a> (Fall 2019)</li>
+							<li><a href="http://www.cs.cornell.edu/courses/cs5152/2019Sp/">CS-5152: Open-Source Software Engineering</a> (Spring 2019)</li>
+							<li><a href="http://www.cs.cornell.edu/courses/cs6117/2018Sp/">CS-6117: Category Theory for Computer Scientists</a> (Spring 2018)</li>
+							<li><a href="http://www.cs.cornell.edu/courses/cs5152/2017Sp/">CS-5152: Open-Source Software Engineering</a> (Spring 2017)</li>
+							<li><a href="http://www.cs.cornell.edu/courses/cs2110/2016Sp/">CS-2110: OO Programming and Data Structures</a> (Spring 2016)</li>
+							<li><a href="http://www.cs.cornell.edu/courses/cs5152/2015Sp/">CS-5152: Open-Source Software Engineering</a> (Spring 2015)</li>
+							<li><a href="http://www.cs.cornell.edu/courses/cs6117/2014Fa/">CS-6117: Category Theory for Computer Scientists</a> (Fall 2015)</li>
+							<li><a href="http://www.cs.cornell.edu/courses/cs5152/2014Sp/">CS-5152: Open-Source Software Engineering</a> (Spring 2014)</li>
+							<li><a href="http://www.cs.cornell.edu/courses/cs4120/2013Fa/">CS-4120/4121/5120/5121: Introduction to Compilers</a> (Fall 2014)</li>
+							<li><a href="http://www.cs.cornell.edu/courses/cs5152/2013Sp/">CS-5152: Open-Source Software Engineering</a> (Spring 2013)</li>
+							<li><a href="http://www.cs.cornell.edu/courses/cs6118/2012Fa/">CS-6118: Types and Semantics</a> (Fall 2013)</li>
+							<li>CSE-130: Programming Languages (Summer Session II 2010 at UCSD)</li>
+						</ul>
+		
+					<h2>Research Internships</h2>
+						<p>I interned under <a href="http://research.microsoft.com/~daan/">Daan Leijen</a> at Microsoft Research in Redmond in Summer/Fall 2009. We designed a pure but effectful functional programming language, as well as a Hindley-Milner-like type inference algorithm with effects and higher-order polymorphism (based on Daan's <a href="https://www.microsoft.com/en-us/research/publication/hmf-simple-type-inference-for-first-class-polymorphism-2/">HMF</a>). In doing so, I improved compiler technology for inferring higher-ranked polymorphism. I also managed to generalize monads in order to formalize effect systems with multiple interacting effects.</p>
+						<p>I interned under Juan Chen and <a href="http://research.microsoft.com/~chrishaw/">Chris Hawblitzel</a> at Microsoft Research in Redmond in Summer/Fall 2008. I designed a type-inference algorithm for an x86 assembly type system for object-oriented programs, as can be seen at <a href="publications/italx/">PLDI 2010</a>. This typed assembly language, which we called iTalX, is now a key part of Microsoft Research's computer-verified memory-safe operating system, <a href="http://research.microsoft.com/apps/pubs/?id=122884">Verve</a>. In order to design this inferable type system, I first designed a framework for existential types based on category theory, which has proven to be intuitive, powerful, and flexible. This framework was then reused for my work on Java's wildcards in <a href="publications/tamewild/">PLDI 2011</a>.</p>
+		
+					<h2>Industry Internships</h2>
+						<p>I interned at <a href="http://www.treyarch.com/">Treyarch</a>, a studio of Activision, twice. The first time I worked on the early stages of the Spider-Man 3 console game. The second time I worked on Spider-Man: Web of Shadows. My biggest contributions were in improving the scripting language used by the game designers, and this may have somewhat fostered my enjoyment of programming languages. I also worked a lot with computational geometry and corresponding graph theory.</p>
+						<p>Before that, I interned at <a href="http://www.customflix.com/">CustomFlix</a>. At the time, CustomFlix was a very small internet company which processed, distributed, and marketed personal videos. I held various roles such as architect, tester, lead, and web developer.</p>
+		
+					<h2>Post Script</h2>
+						<p>I originally stole this site design from <a href="http://goto.ucsd.edu/~pmr/">Patrick &quot;Maxim&quot; Rondon</a>, which <a href="http://www.stephenlongfield.com/">Stephen Longfield</a> then stole from me, though all our designs have changed since.</p>
+						<p>Before I made this site, searching my name would pull up <a href="http://albertalandsurveyhistory.ca/index.php?title=R.A.F._(Ross)_Tate">this page about my grandfather</a>.</p>
+				</div>
+			</ul>
 		</div>
 	</body>
 </html>
