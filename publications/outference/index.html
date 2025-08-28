@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<html>
+  <head>
+    <title>Type-Outference with Label-Listeners: Foundations for Decidable Type-Consistency for Nominal Object-Oriented Generics</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css" />
+  </head>
+  <body>
+    <div id="personal">
+      <!--div id="media">
+        <video id="video" controls preload="metadata" width="640" height="480">
+          <source src="https://pub.ist.ac.at/~fmuehlbo/media/monnom-oopsla21.mp4" type="video/mp4">
+          <track label="English" kind="subtitles" srclang="en" src="https://pub.ist.ac.at/~fmuehlbo/media/monnom-oopsla21.vtt" default>
+        </video>
+      </div-->
+
+      <h1 class="name">Type-Outference with Label-Listeners</h1>
+      <h1 class="subtitle">Foundations for Decidable Type-Consistency for Nominal Object-Oriented Generics</h2>
+
+      <p>OOPSLA 2025: <a href="outference-tate-oopsla25.pdf">[pdf]</a> <a href="index.html" onClick="window.open('bibtex.html','Type-Outference with Label-Listeners: Foundations for Decidable Type-Consistency for Nominal Object-Oriented Generics','width=1080,height=220,top=100,left=100,scrollbars=Yes,resizable=yes');">[bibtex]</a> <!--a href="monnom-oopsla21.pptx">[pptx]</a> <a href="https://pub.ist.ac.at/~fmuehlbo/media/monnom-oopsla21.mp4">[mp4]</a--></p>
+      <p>Rocq Artifact: <a href="outference-tate-oopsla25.v">[v]</a> <a href="index.html" onClick="window.open('bibtex-artifact.html','Rocq Formalization and Verification for the OOPSLA 2025 Article \'Type-Outference with Label-Listeners: Foundations for Decidable Type-Consistency for Nominal Object-Oriented Generics\'','width=1080,height=220,top=100,left=100,scrollbars=Yes,resizable=yes');">[bibtex]</a></p>
+
+      <p>Author: <a href="../../">Ross Tate</a></p>
+    </div>
+
+    <div id="main">
+      <h2>Abstract</h2>
+        <p>
+          We present the first sound and complete decision procedure capable of validating nominal object-oriented programs without type annotations in expressions even in the presence of generic interfaces with irregularly-recursive signatures.
+          Such interface signatures are exemplary of the challenges an algorithm must overcome in order to scale to the needs of modern major typed object-oriented languages.
+          We do so by incorporating event-driven <em>label-listeners</em> into our constraint system, enabling more complex aspects of program validation to be generated on demand while still ensuring termination.
+          Furthermore, we define <em>type-consistency</em> as a novel declarative notion of program validity that ensures safety without requiring a complex grammar of types to perform inference within.
+          While type-inferability ensures type-consistency, the converse does not necessarily hold.
+          Thus our algorithm decides program validity with<em>out</em> inferring the types missing from the program, and so we instead call it a <em>type-outference</em> algorithm.
+          By bypassing type-inference, the proofs involving type-consistency more directly connect the design of and reasoning about constraints to the operational semantics of the language, simplifying much of the design and verification process.
+          We mechanically formalize and verify these concepts and techniques&mdash;type-consistency, type-outference, and label-listeners&mdash;in Rocq to provide a solid foundation for scaling decidability beyond the limitations of structural types.
+        </p>
+    </div>
+  </body>
+</html>
